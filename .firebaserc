@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-2022-aab81": {
+      "hosting": {
+        "angular-project-2022": [
+          "angular-2022-aab81"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-2022-aab81"
+  }
+}
