@@ -4,6 +4,7 @@ import { ColorsComponent } from './colors/colors.component';
 import { HomeComponent } from './home/home.component';
 import { ReminderComponent } from './reminder/reminder.component';
 
+
 const routes: Routes = [{
   path: '',
   component: HomeComponent

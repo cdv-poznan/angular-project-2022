@@ -8,11 +8,13 @@ import {MatButtonModule} from '@angular/material/button';
 import { HomeComponent } from './home/home.component';
 import { ColorsComponent } from './colors/colors.component';
 import { ReminderComponent } from './reminder/reminder.component';
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ColorsComponent, ReminderComponent],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, MatButtonModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, MatButtonModule, MatIconModule],
   providers: [],
   bootstrap: [AppComponent],
 })
