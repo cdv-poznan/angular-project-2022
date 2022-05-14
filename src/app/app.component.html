@@ -1,9 +1,17 @@
 <mat-toolbar color="primary">
     <h1>{{ title }}</h1>
 
-    <button mat-flat-button color="Basic" routerLink="/">HOME</button>
-    <button mat-flat-button color="accent" routerLink="/colors">COLORS</button>
-    <button mat-flat-button color="warn" routerLink="/reminder"> REMAINDER </button>
+    <button mat-flat-button color="Basic" routerLink="/">
+        <mat-icon>house</mat-icon>
+        <span>HOME</span>
+    </button>
+    <button mat-flat-button color="accent" routerLink="/colors">
+        <mat-icon>brush</mat-icon>
+        <span>    COLORS</span>
+    </button>
+    <button mat-flat-button color="warn" routerLink="/reminder">
+        <mat-icon>notifications</mat-icon>
+      <span>REMAINDER</span> </button>
 </mat-toolbar>
 
 
