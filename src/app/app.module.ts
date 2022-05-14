@@ -13,6 +13,8 @@ import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
 import {environment} from '../environments/environment';
 import {provideAuth, getAuth} from '@angular/fire/auth';
 import {provideFirestore, getFirestore} from '@angular/fire/firestore';
+import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ColorsComponent, RemaindersComponent],
@@ -26,6 +28,8 @@ import {provideFirestore, getFirestore} from '@angular/fire/firestore';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
+    MatCardModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent],
