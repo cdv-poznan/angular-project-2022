@@ -2,9 +2,11 @@
 
     <h1>{{ title }}</h1>
 
-<button mat-raised-button color="primary" routerLink="/">Home</button>
-<button mat-raised-button color="accent" routerLink="/colors">Colors</button>
-<button mat-raised-button color="warn" routerLink="/reminder">Reminders</button>
+<nav>
+    <button mat-raised-button color="primary" routerLink="/"><mat-icon>house</mat-icon><span>Home</span></button>
+    <button mat-raised-button color="accent" routerLink="/colors"><mat-icon>palette</mat-icon><span>Colors</span></button>
+    <button mat-raised-button color="warn" routerLink="/reminder"><mat-icon>event</mat-icon><span>Reminders</span></button>
+</nav>
 
 </mat-toolbar>
 
