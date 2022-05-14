@@ -2,6 +2,11 @@
   display: block;
 }
 
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
 button {
-  margin-right: 1rem;
+  margin-left: 1rem;
 }
