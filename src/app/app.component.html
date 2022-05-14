@@ -1,9 +1,23 @@
 
 <mat-toolbar>
     <h1>{{ title }}</h1>
-    <button mat-raised-button color="accent" routerLink="/"> Home </button>
-    <button mat-raised-button color="accent" routerLink="/colors">color </button>
-    <button mat-raised-button color ="accent" routerLink="/reminder">reminders</button>
+    <button mat-raised-button color="accent" routerLink="/"> 
+       <mat-icon > house </mat-icon>
+        <span> Home </span>
+        <!-- <span class="material-symbols-outlined">
+notifications_active
+</span>
+</span> -->
+     </button>
+    <button mat-raised-button color="accent" routerLink="/colors">
+        <mat-icon > palette </mat-icon>
+     <span> color </span>   
+     </button>
+    <button mat-raised-button color ="accent" routerLink="/reminder">
+       <mat-icon> notifications_active </mat-icon> 
+      <span>reminder</span>  
+    
+    </button>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

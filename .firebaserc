@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-project-2022-1cdcd": {
+      "hosting": {
+        "angular-project-2022": [
+          "angular-project-2022-1cdcd"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-project-2022-1cdcd"
+  }
+}
