@@ -1,3 +1,9 @@
-<h1>{{ title }}</h1>
+
+<mat-toolbar>
+    <h1>{{ title }}</h1>
+    <button mat-raised-button color="accent" routerLink="/"> Home </button>
+    <button mat-raised-button color="accent" routerLink="/colors">color </button>
+    <button mat-raised-button color ="accent" routerLink="/reminder">reminders</button>
+</mat-toolbar>
 
 <router-outlet></router-outlet>
