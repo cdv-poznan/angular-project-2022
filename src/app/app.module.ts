@@ -8,10 +8,15 @@ import {MatButtonModule} from '@angular/material/button';
 import { ReminderComponent } from './reminder/reminder.component';
 import { ColorsComponent } from './colors/colors.component';
 import { HomeComponent } from './home/home.component';
+import {MatIconModule} from '@angular/material/icon';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent, ReminderComponent, ColorsComponent, HomeComponent],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, MatButtonModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, MatButtonModule, MatIconModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
   providers: [],
   bootstrap: [AppComponent],
 })

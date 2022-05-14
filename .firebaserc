@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angular-pr-jz": {
+      "hosting": {
+        "angular-project-2022": [
+          "angular-pr-jz"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angular-pr-jz"
+  }
+}
