@@ -13,10 +13,12 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [AppComponent, ReminderComponent, ColorsComponent, HomeComponent],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, MatButtonModule, MatIconModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, MatButtonModule, MatIconModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), MatCardModule, MatListModule],
   providers: [],
   bootstrap: [AppComponent],
 })
