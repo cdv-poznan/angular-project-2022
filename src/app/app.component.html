@@ -1,3 +1,12 @@
-<h1>{{ title }}</h1>
+<mat-toolbar color="primary">
+    <h1>{{ title }}</h1>
+
+    <button mat-flat-button color="Basic" routerLink="/">HOME</button>
+    <button mat-flat-button color="accent" routerLink="/colors">COLORS</button>
+    <button mat-flat-button color="warn" routerLink="/reminder"> REMAINDER </button>
+</mat-toolbar>
+
+
+
 
 <router-outlet></router-outlet>
