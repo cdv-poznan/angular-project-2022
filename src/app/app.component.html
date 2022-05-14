@@ -1,12 +1,17 @@
 <mat-toolbar>
   <h1>{{ title }}</h1>
 
-  <button mat-button color="primary">Home</button>
+  <nav>
+    <button mat-raised-button color="primary" routerLink="/">Home</button>
 
-  <button mat-raised-button color="accent">Colors</button>
+    <button mat-raised-button color="accent" routerLink="/colors">
+      Colors
+    </button>
 
-  <button mat-stroked-button color="warn">Reminders</button>
-
+    <button mat-raised-button color="warn" routerLink="/reminder">
+      Reminder
+    </button>
+  </nav>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
