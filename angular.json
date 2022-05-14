@@ -106,6 +106,16 @@
               "src/**/*.html"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "angular-project-2022:build:production",
+            "firebaseProject": "angular-2022-project",
+            "firebaseHostingSite": "angular-2022-project"
+          }
         }
       },
       "schematics": {
