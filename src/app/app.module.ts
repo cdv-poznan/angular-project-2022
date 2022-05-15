@@ -16,6 +16,9 @@ import {provideFirestore, getFirestore} from '@angular/fire/firestore';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {ClipboardModule} from '@angular/cdk/clipboard';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ColorsComponent, RemaindersComponent],
@@ -31,7 +34,10 @@ import { HttpClientModule } from '@angular/common/http';
     provideFirestore(() => getFirestore()),
     MatCardModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTooltipModule,
+    ClipboardModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],
