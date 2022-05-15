@@ -16,6 +16,9 @@ import {AppComponent} from './app.component';
 import {ColorsComponent} from './colors/colors.component';
 import {HomeComponent} from './home/home.component';
 import {ReminderComponent} from './reminder/reminder.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {ClipboardModule} from '@angular/cdk/clipboard';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ColorsComponent, ReminderComponent],
@@ -29,6 +32,9 @@ import {ReminderComponent} from './reminder/reminder.component';
     MatIconModule,
     MatCardModule,
     MatListModule,
+    MatTooltipModule,
+    ClipboardModule,
+    MatSnackBarModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
