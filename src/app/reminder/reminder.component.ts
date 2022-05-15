@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {collection, collectionData, DocumentData, Firestore} from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-reminder',
@@ -6,7 +7,15 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./reminder.component.scss'],
 })
 export class ReminderComponent implements OnInit {
-  constructor() {}
+  tasks: DocumentData[];
 
-  ngOnInit(): void {}
+  constructor(public firestore: Firestore) {}
+
+  ngOnInit(): void {
+    const remindersCollection = collection(this.firestore, 'reminders');
+
+    collectionData(remindersCollection).subscribe(data => {
+      this.tasks = data;
+    });
+  }
 }
