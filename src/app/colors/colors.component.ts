@@ -20,7 +20,7 @@ export class ColorsComponent implements OnInit {
     });
   }
 
-  onCopiedToClipboard() {
+  onCopied() {
     this.matSnackBar.open('Color has been copied to clipboard', 'Close', {
       verticalPosition: 'top',
       horizontalPosition: 'right',
