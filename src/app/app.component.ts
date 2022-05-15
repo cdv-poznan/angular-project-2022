@@ -12,20 +12,6 @@ export class AppComponent {
   constructor(private translateService: TranslateService) {}
 
   ngOnInit() {
-    this.translateService.setTranslation('en',{
-      title: 'Hello',
-      home: 'Home',
-      colors: 'Colors',
-      reminder: 'Reminder',
-    });
-
-    this.translateService.setTranslation('pl',{
-      title: 'Cześć',
-      home: 'Strona główna',
-      colors: 'Kolory',
-      reminder: 'Lista zadań',
-    });
-
     this.translateService.use('pl');
   }
 
