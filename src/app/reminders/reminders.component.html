@@ -1,1 +1,5 @@
-<p>reminders works!</p>
+<input [(ngModel)]="text" (keydown.enter)="addTask()"/>
+<div *ngFor="let task of tasks">
+    {{ task.text }}
+
+    </div>
