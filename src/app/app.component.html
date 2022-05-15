@@ -12,7 +12,17 @@
     <mat-icon> notifications_active</mat-icon>
     <span>{{ 'reminder' | translate }}</span>
   </button>
-  <button mat-icon-button (click)="changeLanguage()"><mat-icon>language</mat-icon></button>
+  <button mat-icon-button (click)="changeLanguage()">
+    <mat-icon>language</mat-icon>
+  </button>
+  <button mat-button (click)="signInWithGoogle()" *ngIf="!auth.currentUser">
+    Sign in with Google
+  </button>
+
+  <button mat-button *ngIf="auth.currentUser" (click)="signOut()">
+    Sign out
+  </button>
+  <span>{{ auth.currentUser?.email }}</span>
 </mat-toolbar>
-s
+
 <router-outlet></router-outlet>
