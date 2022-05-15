@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {collectionData, Firestore} from '@angular/fire/firestore';
-import {collection, DocumentData, QueryDocumentSnapshot} from '@firebase/firestore';
+import {collectionData, CollectionReference, Firestore} from '@angular/fire/firestore';
+import {addDoc, collection, DocumentData, QueryDocumentSnapshot} from '@firebase/firestore';
 
 interface Task {
   text: string;
@@ -15,12 +15,14 @@ interface Task {
 })
 export class ReminderComponent implements OnInit {
   tasks: Task[];
+  text: string = '';
+  remindersCollection: CollectionReference<Task>;
 
   constructor(public firestore: Firestore) {}
 
   ngOnInit(): void {
     //referencja że chcemy pobrać dane z bazy danych - z kolekcji
-    const remindersCollection = collection(this.firestore, 'reminders').withConverter({
+    this.remindersCollection = collection(this.firestore, 'reminders').withConverter({
       toFirestore(task: Task): DocumentData {
         return task as DocumentData;
       },
@@ -28,8 +30,19 @@ export class ReminderComponent implements OnInit {
         return snapshot.data() as Task;
       },
     });
-    collectionData(remindersCollection).subscribe(data => {
+    collectionData(this.remindersCollection).subscribe(data => {
       this.tasks = data;
     });
+  }
+
+  addTask() {
+    const task: Task = {
+      text: this.text,
+      done: false,
+      created: Date.now(),
+    };
+
+    addDoc(this.remindersCollection, task);
+    this.text = '';
   }
 }
