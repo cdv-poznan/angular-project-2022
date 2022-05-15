@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import { Auth, GoogleAuthProvider, signInWithPopup } from '@angular/fire/auth';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -9,7 +10,8 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent {
   title = 'Angular Project 2022';
 
-  constructor(private translateService: TranslateService) {}
+  constructor(private translateService: TranslateService,
+    private auth: Auth) {}
 
   ngOnInit() {
     this.translateService.use('pl');
@@ -22,6 +24,10 @@ export class AppComponent {
         this.translateService.use('pl');
       }
       }
+signInWithGoogle() {
+  signInWithPopup(this.auth, new GoogleAuthProvider());
+}
+      
   }
   
 
