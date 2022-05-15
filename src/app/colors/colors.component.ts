@@ -18,11 +18,19 @@ export class ColorsComponent implements OnInit {
   constructor(private httpClient: HttpClient, private matSnackBar: MatSnackBar) {}
 
   ngOnInit(): void {
-    this.httpClient.get<ColorsResponse>('https://reqres.in/api/colors').subscribe((response: ColorsResponse) => {
-      this.colors = response.data;
-      this.total = response.total;
-      this.perPage = response.per_page;
-    });
+    this.getColors(1);
+  }
+
+  getColors(page: number) {
+    this.httpClient
+      .get<ColorsResponse>('https://reqres.in/api/colors', {
+        params: {page},
+      })
+      .subscribe((response: ColorsResponse) => {
+        this.colors = response.data;
+        this.total = response.total;
+        this.perPage = response.per_page;
+      });
   }
 
   onCopied() {
@@ -35,6 +43,6 @@ export class ColorsComponent implements OnInit {
 
   onPageChange(event: PageEvent) {
     const nextPage = event.pageIndex + 1;
-    console.log(event);
+    this.getColors(nextPage);
   }
 }
