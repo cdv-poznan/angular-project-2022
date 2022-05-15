@@ -1,3 +1,4 @@
+import {HttpClient} from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 
 @Component({
@@ -6,7 +7,12 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./colors.component.scss'],
 })
 export class ColorsComponent implements OnInit {
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.httpClient.get('https://reqres.in/api/colors')
+      .subscribe(response => {
+        console.log(response);
+      });
+  }
 }
