@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(private translateService: TranslateService) {}
 
   ngOnInit() {
-    this.translateService.use('pl');
+    this.translateService.use('es');
   }
 
   changeLanguage() {
