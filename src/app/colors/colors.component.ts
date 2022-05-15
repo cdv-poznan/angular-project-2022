@@ -44,4 +44,6 @@ export class ColorsComponent implements OnInit {
     const nextPage = event.pageIndex + 1;
     this.getColors(nextPage);
   }
+
+
 }
