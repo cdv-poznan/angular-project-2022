@@ -1,7 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {collection, collectionData, DocumentData, Firestore, QueryDocumentSnapshot} from '@angular/fire/firestore';
+import { addDoc, CollectionReference, doc } from '@firebase/firestore';
 
 interface Task {
+  id: number;
   text: string;
   created: number;
   done: boolean;
@@ -14,7 +16,8 @@ interface Task {
 })
 export class ReminderComponent implements OnInit {
   tasks: Task[];
-
+  text: string = "";
+  remindersCollection: CollectionReference;
   constructor(public firestore: Firestore) {}
 
   ngOnInit(): void {
@@ -27,8 +30,25 @@ export class ReminderComponent implements OnInit {
       },
     });
 
-    collectionData(remindersCollection).subscribe(data => {
+    collectionData(remindersCollection {id field="id"}).subscribe(data => {
       this.tasks = data;
     });
+    addTask() {
+      const task: Task = {
+      text: this.text,
+      done: false,
+      created: Date.now(),
+    };
+    
+    addDoc(this.remindersCollection, task) {
+      this.tasks = '';
+    }
+    updateTask(task: Task, done: Boolean) {
+      doc(this.firestore, `reminders/${task.id}`);
+    }
   }
+}
+
+function addTask() {
+  throw new Error('Function not implemented.');
 }
