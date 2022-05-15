@@ -1,4 +1,4 @@
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
@@ -20,7 +20,12 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import {TranslateModule} from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+
+export function HttpLoaderFactory(http: HttpClient){
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ColorsComponent, ReminderComponent],
@@ -42,7 +47,13 @@ import {TranslateModule} from '@ngx-translate/core';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
-    TranslateModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (HttpLoaderFactory),
+        deps: [HttpClient]
+    },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
