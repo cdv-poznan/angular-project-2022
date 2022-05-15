@@ -13,6 +13,9 @@ https://fonts.google.com/icons
 https://firebase.google.com
 https://www.npmjs.com/package/firebase-tools
 
+## Angular Firebase
+https://github.com/angular/angularfire
+
 ## Błąd uprawnień
 
 sudo npm install -g firebase-tools
