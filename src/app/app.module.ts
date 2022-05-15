@@ -16,6 +16,10 @@ import {provideFirestore, getFirestore} from '@angular/fire/firestore';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {ClipboardModule} from '@angular/cdk/clipboard';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ColorsComponent, ReminderComponent],
@@ -26,6 +30,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
+    ClipboardModule,
+    MatTooltipModule,
+    MatSnackBarModule,
     MatCardModule,
     MatListModule,
     MatIconModule,
