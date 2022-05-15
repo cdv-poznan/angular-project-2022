@@ -26,4 +26,12 @@ export class AppComponent {
     });
     this.translateService.use('pl');
   }
+
+  changeLanguage() {
+    if (this.translateService.currentLang === 'pl') {
+      this.translateService.use('en');
+    } else {
+      this.translateService.use('pl');
+    }
+  }
 }
