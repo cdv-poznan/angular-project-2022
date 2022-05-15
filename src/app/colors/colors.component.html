@@ -18,15 +18,18 @@
                 <div mat-line>
                     {{color2.color}} {{color2.year}}
                 </div>
-                    <button mat-icon-button
-                    matTooltip="Copy color HEX to clipboard"
-                    [cdkCopyToClipboard]="color2.color"
+                <button mat-icon-button matTooltip="Copy color HEX to clipboard" [cdkCopyToClipboard]="color2.color"
                     (cdkCopyToClipboardCopied)="onCopiedToClipboard()">
-                        <mat-icon>content_copy</mat-icon>
-                    </button>
-                
+                    <mat-icon>content_copy</mat-icon>
+                </button>
+
             </mat-list-item>
         </mat-list>
+
+        <mat-paginator [length]="total"
+        [pageSize]="perPage"
+        (page)="onPageChange($event)">
+        </mat-paginator>
     </mat-card-content>
 
 </mat-card>
