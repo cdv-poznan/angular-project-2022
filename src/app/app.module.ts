@@ -20,6 +20,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ColorsComponent, ReminderComponent],
@@ -37,9 +38,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     ClipboardModule,
     MatSnackBarModule,
     MatPaginatorModule,
+   
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
+    TranslateModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
