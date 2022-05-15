@@ -1,20 +1,20 @@
 <mat-toolbar>
-    <h1>{{ title }}</h1>
+    <h1>{{ 'title' | translate }}</h1>
 
 <button mat-raised-button color="primary" routerLink="/">
     <mat-icon>pets</mat-icon>  
-    <span>Home</span>
+    <span>{{'home' | translate}}</span>
 </button>
 
 
 <button mat-raised-button color="accent" routerLink="/colors">
     <mat-icon>bug_report</mat-icon>  
-    <span>Color</span>
+    <span>{{'color' | translate}}</span>
 </button>
 
 <button mat-raised-button color="warn" routerLink="/reminder">
     <mat-icon>rocket_launch</mat-icon>  
-    <span>Reminder</span>
+    <span>{{'reminder' | translate}}</span>
 </button>
 
 </mat-toolbar>
