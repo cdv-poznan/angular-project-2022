@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ClipboardModule,
     MatTooltipModule,
     MatSnackBarModule,
+    MatPaginatorModule,
     MatCardModule,
     MatListModule,
     MatIconModule,

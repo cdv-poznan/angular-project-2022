@@ -25,5 +25,12 @@
         </button>
       </mat-list-item>
     </mat-list>
+
+    <mat-paginator
+    [length]="total"
+    [pageSize]="perPage"
+    (page)="onPageChange($event)"
+    >
+  </mat-paginator>
   </mat-card-content>
 </mat-card>
