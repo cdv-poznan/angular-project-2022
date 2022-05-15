@@ -18,6 +18,13 @@
   <button mat-icon-button (click)="changeLanguage()">
     <mat-icon>language</mat-icon>
   </button>
+  <button mat-button (click)="signInWithGoogle()" *ngIf="!auth.currentUser">
+    Sign up with google
+  </button>
+  <button mat-button *ngIf="auth.currentUser" (click)="signOut()">
+    Sign Out:
+    <span> {{ auth.currentUser?.email }}</span>
+  </button>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
