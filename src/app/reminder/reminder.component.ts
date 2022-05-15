@@ -1,7 +1,19 @@
 import {Component, OnInit} from '@angular/core';
-import {collection, collectionData, DocumentData, Firestore, QueryDocumentSnapshot} from '@angular/fire/firestore';
+import {
+  addDoc,
+  collection,
+  collectionData,
+  CollectionReference,
+  deleteDoc,
+  doc,
+  DocumentData,
+  Firestore,
+  QueryDocumentSnapshot,
+  updateDoc,
+} from '@angular/fire/firestore';
 
 interface Task {
+  id?: string;
   text: string;
   created: number;
   done: boolean;
@@ -14,11 +26,13 @@ interface Task {
 })
 export class ReminderComponent implements OnInit {
   tasks: Task[];
+  text: string = '';
+  remindersCollection: CollectionReference<Task>;
 
   constructor(public firestore: Firestore) {}
 
   ngOnInit(): void {
-    const remindersCollection = collection(this.firestore, 'reminders').withConverter({
+    this.remindersCollection = collection(this.firestore, 'reminders').withConverter({
       toFirestore(task: Task): DocumentData {
         return task as DocumentData;
       },
@@ -27,8 +41,29 @@ export class ReminderComponent implements OnInit {
       },
     });
 
-    collectionData(remindersCollection).subscribe(data => {
+    collectionData(this.remindersCollection, {idField: 'id'}).subscribe(data => {
       this.tasks = data;
     });
+  }
+
+  addTask() {
+    const task: Task = {
+      text: this.text,
+      done: false,
+      created: Date.now(),
+    };
+
+    addDoc(this.remindersCollection, task);
+    this.text = '';
+  }
+
+  updateTask(task: Task, done: boolean) {
+    const ref = doc(this.firestore, `reminders/${task.id}`);
+    updateDoc(ref, {done});
+  }
+
+  deleteTask(task: Task) {
+    const ref = doc(this.firestore, `reminders/${task.id}`);
+    deleteDoc(ref);
   }
 }

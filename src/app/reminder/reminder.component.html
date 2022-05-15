@@ -1,5 +1,14 @@
+<input [(ngModel)]="text" (keydown.enter)="addTask()" />
+
 <div>
   <div *ngFor="let task of tasks">
+    <input
+      type="checkbox"
+      [(ngModel)]="task.done"
+      (ngModelChange)="updateTask(task, $event)"
+    />
     {{ task.text }}
+
+    <button (click)="deleteTask(task)">remove</button>
   </div>
 </div>
