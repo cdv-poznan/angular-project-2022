@@ -16,3 +16,8 @@ https://www.npmjs.com/package/firebase-tools
 ## Błąd uprawnień
 
 sudo npm install -g firebase-tools
+
+## NGX Translate
+
+http://www.ngx-translate.com/
+https://github.com/ngx-translate/core
