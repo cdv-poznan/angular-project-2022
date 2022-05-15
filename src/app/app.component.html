@@ -1,18 +1,19 @@
 <mat-toolbar>
-<h1>{{ title }}</h1>
+<h1>{{ 'title' | translate }}</h1>
 <nav>
 <button mat-stroked-button color="warn" routerLink="/">
     <mat-icon>house</mat-icon>
-    <span>Home</span>
+    <span>{{'home' | translate}}</span>
 </button>
 <button mat-stroked-button color="warn" routerLink="/colors">
     <mat-icon>palette</mat-icon>
-    <span>Colors</span>
+    <span>{{'colors' | translate}}</span>
 </button>
 <button mat-stroked-button color="warn" routerLink="/remainders">
     <mat-icon>computer</mat-icon>
-    <span>Remainders</span>
+    <span>{{'remainders' | translate}}</span>
 </button>
 </nav>
+<button mat-icon-button (click)="changeLanguage()"><mat-icon>change_circle</mat-icon></button>
 </mat-toolbar>
 <router-outlet></router-outlet>

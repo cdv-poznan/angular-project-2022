@@ -20,6 +20,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ColorsComponent, RemaindersComponent],
@@ -39,7 +40,8 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatTooltipModule,
     ClipboardModule,
     MatSnackBarModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    TranslateModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
