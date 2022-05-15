@@ -15,6 +15,7 @@ import {provideAuth, getAuth} from '@angular/fire/auth';
 import {provideFirestore, getFirestore} from '@angular/fire/firestore';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ColorsComponent, RemaindersComponent],
@@ -29,7 +30,8 @@ import {MatListModule} from '@angular/material/list';
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     MatCardModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
