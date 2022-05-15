@@ -5,8 +5,22 @@
        <mat-card-title>  <mat-icon mat-card-avatar>palette</mat-icon> 
            colors </mat-card-title>
    <mat-card-subtitle>
-       subtitless 
+       list of colors
    </mat-card-subtitle>
 </mat-card-header>
-   <mat-card-content>content </mat-card-content>
+   <mat-card-content>
+       <mat-list>
+   
+    <mat-list-item *ngFor="let color of colors">
+        <mat-icon 
+        mat-list-icon
+        [ngStyle]="{color: color.color, backgroundColor: '#eee'}">
+        palette </mat-icon>
+    <div mat-line> {{ color.name}}  </div>
+    <div mat-line> {{ color.color }} {{color.year}} </div>
+
+    </mat-list-item>    
+
+</mat-list>
+    </mat-card-content>
 </mat-card>
