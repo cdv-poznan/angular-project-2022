@@ -11,7 +11,7 @@ import {TranslateService} from '@ngx-translate/core';
 export class AppComponent {
   title = 'Angular Project 2022';
 
-  constructor(private translateService: TranslateService, private auth: Auth) {}
+  constructor(private translateService: TranslateService, public auth: Auth) {}
 
   ngOnInit() {
         this.translateService.use('pl');
@@ -26,5 +26,10 @@ changeLanguage(){
 }
 signInWithGoogle(){
   signInWithPopup(this.auth, new GoogleAuthProvider());
+}
+
+signOut(){
+  this.auth.signOut();
+
 }
 }
