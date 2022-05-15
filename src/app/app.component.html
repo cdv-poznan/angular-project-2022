@@ -17,6 +17,10 @@
       <span>{{ 'reminder' | translate }}</span>
     </button>
   </nav>
+
+  <button mat-icon-button (click)="changeLanguage()">
+    <mat-icon>language</mat-icon>
+  </button>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

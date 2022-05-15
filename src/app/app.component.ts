@@ -24,6 +24,14 @@ export class AppComponent {
       colors: 'Kolory',
       reminder: 'Lista zadań',
     });
-    this.translateService.use('en');
+    this.translateService.use('pl');
+  }
+
+  changeLanguage() {
+    if (this.translateService.currentLang === 'pl') {
+      this.translateService.use('en');
+    } else {
+      this.translateService.use('pl');
+    }
   }
 }
