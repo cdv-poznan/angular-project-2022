@@ -15,6 +15,7 @@ import {MatListModule} from '@angular/material/list';
 import {ColorsComponent} from './colors/colors.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatPaginatorModule} from '@angular/material/paginator';
 // custom components
 import {HomeComponent} from './home/home.component';
 import {ReminderComponent} from './reminder/reminder.component';
@@ -39,6 +40,7 @@ import {provideFirestore, getFirestore} from '@angular/fire/firestore';
     MatTooltipModule,
     ClipboardModule,
     MatSnackBarModule,
+    MatPaginatorModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
