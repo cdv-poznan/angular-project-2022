@@ -15,10 +15,11 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, ReminderComponent, ColorsComponent, HomeComponent],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, MatButtonModule, MatIconModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), MatCardModule, MatListModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, MatButtonModule, MatIconModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), MatCardModule, MatListModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
