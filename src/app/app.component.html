@@ -1,3 +1,22 @@
-<h1>{{ title }}</h1>
-
+<mat-toolbar>
+<h1>{{ 'title' | translate }}</h1>
+<nav>
+<button mat-stroked-button color="warn" routerLink="/">
+    <mat-icon>house</mat-icon>
+    <span>{{'home' | translate}}</span>
+</button>
+<button mat-stroked-button color="warn" routerLink="/colors">
+    <mat-icon>palette</mat-icon>
+    <span>{{'colors' | translate}}</span>
+</button>
+<button mat-stroked-button color="warn" routerLink="/remainders">
+    <mat-icon>computer</mat-icon>
+    <span>{{'remainders' | translate}}</span>
+</button>
+</nav>
+<button mat-icon-button (click)="changeLanguage()"><mat-icon>change_circle</mat-icon></button>
+<button mat-button (click)="signInWithGoogle()" *ngIf="!auth.currentUser">Sign in with Google</button>
+<button mat-button *ngIf="auth.currentUser" (click)="signOut()">Sign out</button>
+<span>{{auth.currentUser?.email}}</span>
+</mat-toolbar>
 <router-outlet></router-outlet>
