@@ -1,27 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import { ColorsComponent } from './colors/colors.component';
-import { HomeComponent } from './home/home.component';
-import { ReminderComponent } from './reminder/reminder.component';
 
-const routes: Routes = [
-
-  {
-    path: '',
-    component: HomeComponent,
-  },
-
-  {
-    path: 'colors',
-    component: ColorsComponent,
-  },
-
-  {
-    path: 'reminder',
-    component: ReminderComponent,
-  }
-
-];
+const routes: Routes = [];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -104,16 +104,6 @@
               "src/**/*.html"
             ]
           }
-        },
-        "deploy": {
-          "builder": "@angular/fire:deploy",
-          "options": {
-            "prerender": false,
-            "ssr": false,
-            "browserTarget": "angular-project-2022:build:production",
-            "firebaseProject": "angular-project-2022-3fd6b",
-            "firebaseHostingSite": "angular-project-2022-3fd6b"
-          }
         }
       },
       "schematics": {
