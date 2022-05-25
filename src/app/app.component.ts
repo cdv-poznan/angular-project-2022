@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'Angular Project 2022';
 
   constructor(private translateService: TranslateService,
-    private auth: Auth) {}
+    public auth: Auth) {}
 
   ngOnInit() {
     this.translateService.use('pl');
@@ -31,6 +31,10 @@ export class AppComponent {
 
   signInWithGoogle(){
     signInWithPopup(this.auth, new GoogleAuthProvider());
+  }
+
+  signOut(){
+    this.auth.signOut();
   }
 
 }
