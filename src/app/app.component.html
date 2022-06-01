@@ -1,10 +1,8 @@
 <section class="front__site">
-<mat-toolbar>
+  <mat-toolbar>
     <h1>FX COIN</h1>
-  
+
     <nav>
-     
-  
       <button mat-raised-button color="basic" routerLink="/colors">
         <mat-icon>attach_money</mat-icon>
         <span>Prices</span>
@@ -14,25 +12,47 @@
         <mat-icon>badge</mat-icon>
         <span>About</span>
       </button>
-  
-     
     </nav>
   </mat-toolbar>
 
-
-    <div class="main__title">
-        <h1>page for <br> checking <br> currency prices</h1>
-        <button mat-flat-button>Get more</button>
-      
-    </div>
+  <div class="main__title">
+    <h1>
+      page for <br />
+      checking <br />
+      currency prices
+    </h1>
+    <button mat-flat-button>Get more</button>
+  </div>
 </section>
 
 <section class="prices">
-    <h1>PRICES</h1>
+  <h1>PRICES</h1>
+  <app-table></app-table>
+
 </section>
 
 <footer>
-    ABOUT
+  <p class="footer__copyright">
+    &copy; Copyright by
+    <a target="_blank" href="https://github.com/MiloszStochaj"
+      >Miłosz Stochaj</a
+    >
+  </p>
+
+  <div class="links__icons">
+    <a href="https://twitter.com/mi_stochaj"
+      ><mat-icon>
+        <i class="fa-brands fa-twitter fa-2x"></i> </mat-icon
+    ></a>
+    <a href="https://github.com/MiloszStochaj"
+      ><mat-icon>
+        <i class="fa-brands fa-github fa-2x"></i> </mat-icon
+    ></a>
+    <a href="https://www.linkedin.com/in/mi%C5%82osz-stochaj-931296125/"
+      ><mat-icon><i class="fa-brands fa-linkedin fa-2x"></i></mat-icon
+    ></a>
+  </div>
+  <!-- <fa-icon [icon]="faCoffee"></fa-icon> -->
 </footer>
 
 <router-outlet></router-outlet>

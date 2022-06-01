@@ -2,12 +2,13 @@
   display: block;
 }
 
-
 :host {
   display: block;
 }
 
-.front__site{
+// Front site
+
+.front__site {
   height: 100vh;
 }
 
@@ -20,7 +21,7 @@ button {
   margin-left: 1rem;
 }
 
-.main__title{
+.main__title {
   text-transform: uppercase;
   position: absolute;
   top: 50%;
@@ -30,7 +31,7 @@ button {
   width: 80%;
 }
 
-.main__title h1{
+.main__title h1 {
   color: rgb(244, 240, 240);
   font-size: 3.5rem;
   letter-spacing: 0.5rem;
@@ -38,10 +39,39 @@ button {
   line-height: 5rem;
 }
 
-.main__title button{
+.main__title button {
   font-size: 2rem;
-  padding: 1rem;
-  border-radius: 1.5rem;
+  padding: 1rem 3rem 1rem 3rem;
+  border-radius: 2rem;
   margin-left: 0;
 }
 
+// Footer
+.footer__copyright {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.footer__copyright a {
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.links__icons {
+  margin-top: 3rem;
+  text-align: center;
+ 
+}
+
+.fa-twitter {
+  color: rgb(61, 178, 255);
+}
+
+.fa-github {
+  color: rgb(41, 41, 41);
+}
+
+.fa-linkedin {
+  color: rgb(0, 69, 133);
+  
+}
