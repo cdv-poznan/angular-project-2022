@@ -1,4 +1,38 @@
-<h1>{{ title }}</h1>
-<h1>{{ title }}</h1>
+<section class="front__site">
+<mat-toolbar>
+    <h1>FX COIN</h1>
+  
+    <nav>
+     
+  
+      <button mat-raised-button color="basic" routerLink="/colors">
+        <mat-icon>attach_money</mat-icon>
+        <span>Prices</span>
+      </button>
+
+      <button mat-raised-button color="basic" routerLink="/">
+        <mat-icon>badge</mat-icon>
+        <span>About</span>
+      </button>
+  
+     
+    </nav>
+  </mat-toolbar>
+
+
+    <div class="main__title">
+        <h1>page for <br> checking <br> currency prices</h1>
+        <button mat-flat-button>Get more</button>
+      
+    </div>
+</section>
+
+<section class="prices">
+    <h1>PRICES</h1>
+</section>
+
+<footer>
+    ABOUT
+</footer>
 
 <router-outlet></router-outlet>

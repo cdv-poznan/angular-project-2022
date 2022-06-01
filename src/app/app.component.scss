@@ -1,3 +1,47 @@
 :host {
   display: block;
 }
+
+
+:host {
+  display: block;
+}
+
+.front__site{
+  height: 100vh;
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  margin-left: 1rem;
+}
+
+.main__title{
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  width: 80%;
+}
+
+.main__title h1{
+  color: rgb(244, 240, 240);
+  font-size: 3.5rem;
+  letter-spacing: 0.5rem;
+  word-spacing: 0.5rem;
+  line-height: 5rem;
+}
+
+.main__title button{
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  margin-left: 0;
+}
+
