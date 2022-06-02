@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Table } from './model/table';
+import { TableResponse } from './model/table-response';
+
 
 
 @Component({
@@ -7,10 +11,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
+ public prices: Table ;
 
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor(private HttpClient: HttpClient) {}
+
+  ngOnInit(): void {
+    this.getPrices().subscribe(response => {
+      this.prices = response.rates;
+      console.log(response)
+    })
+  }
+
+ public getPrices(){
+   return this.HttpClient.get<TableResponse>('https://api.vatcomply.com/rates')
+ }
 
 }
 
