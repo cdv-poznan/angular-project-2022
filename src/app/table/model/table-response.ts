@@ -2,7 +2,8 @@ import { Table } from "./table";
 
 
 export interface TableResponse {
-    date: number;
+    json: any;
+    date: string;
     base: string;
-    rates: Table;
+    rates: Table[];
 }

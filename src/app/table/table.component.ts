@@ -11,16 +11,17 @@ import { TableResponse } from './model/table-response';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
- public prices: Table ;
+ public tables: Table[]  = [];
 
 
   constructor(private HttpClient: HttpClient) {}
 
   ngOnInit(): void {
     this.getPrices().subscribe(response => {
-      this.prices = response.rates;
+      this.tables = response.rates as []
       console.log(response)
     })
+    
   }
 
  public getPrices(){
@@ -30,5 +31,3 @@ export class TableComponent implements OnInit {
 }
 
 
-
-// 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/eur.json'
