@@ -1,9 +1,18 @@
 <h1></h1>
 
-<button mat-raised-button color="primary" routerLink="/list-of-results">
-Search
-</button>
-
-<img src="../assets/logo booksearch.png" class="logo">
+<div>
+    <img src="../assets/logo booksearch.png" class="logo">
+    <div>
+        <mat-form-field appearance="fill" id="div_to_search">
+            <mat-label>Textarea</mat-label>
+            <textarea matInput id="Text-to-search"></textarea>
+        </mat-form-field>
+    </div>
+    <div id = "Search_div">
+        <button id = "Search" mat-raised-button color="primary" routerLink="./list-of-results/list-of-results.component">
+            Search
+        </button>
+    </div>
+</div>
 
 <router-outlet></router-outlet>
