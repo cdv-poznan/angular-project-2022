@@ -5,7 +5,7 @@
     <nav>
       <button mat-raised-button color="basic">
         <mat-icon>attach_money</mat-icon>
-        <span>Prices</span>
+        <span>Quotes</span>
       </button>
 
       <button mat-raised-button color="basic">
@@ -27,10 +27,20 @@
 
 <section class="prices">
   <mat-tab-group mat-align-tabs="start">
-    <mat-tab label="Daily quotes">
-      <h1>Daily qurrency quotes</h1>
-      <app-table></app-table
-    ></mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>euro_symbol</mat-icon>
+      </ng-template>
+      <h1>Daily Euro quotes <mat-icon>ssid_chart</mat-icon></h1>
+      <app-table></app-table>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>attach_money</mat-icon>
+      </ng-template>
+      <h1>Daily Dollar quotes <mat-icon>ssid_chart</mat-icon></h1>
+      <app-table-usd></app-table-usd>
+    </mat-tab>
     <mat-tab label="Investment calculator"></mat-tab>
   </mat-tab-group>
 </section>

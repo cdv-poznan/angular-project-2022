@@ -13,10 +13,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {MatTabsModule} from '@angular/material/tabs';
+import { TableUsdComponent } from './table-usd/table-usd.component';
 
 
 @NgModule({
-  declarations: [AppComponent, TableComponent],
+  declarations: [AppComponent, TableComponent, TableUsdComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
