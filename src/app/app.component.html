@@ -3,12 +3,12 @@
     <h1>FX COIN</h1>
 
     <nav>
-      <button mat-raised-button color="basic" routerLink="/colors">
+      <button mat-raised-button color="basic">
         <mat-icon>attach_money</mat-icon>
         <span>Prices</span>
       </button>
 
-      <button mat-raised-button color="basic" routerLink="/">
+      <button mat-raised-button color="basic">
         <mat-icon>badge</mat-icon>
         <span>About</span>
       </button>
@@ -26,9 +26,13 @@
 </section>
 
 <section class="prices">
-  <h1>Daily qurrency quotes</h1>
-  <app-table></app-table>
-
+  <mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Daily quotes">
+      <h1>Daily qurrency quotes</h1>
+      <app-table></app-table
+    ></mat-tab>
+    <mat-tab label="Investment calculator"></mat-tab>
+  </mat-tab-group>
 </section>
 
 <footer>
@@ -41,18 +45,15 @@
 
   <div class="links__icons">
     <a href="https://twitter.com/mi_stochaj"
-      ><mat-icon>
-        <i class="fa-brands fa-twitter fa-2x"></i> </mat-icon
+      ><mat-icon> <i class="fa-brands fa-twitter fa-2x"></i> </mat-icon
     ></a>
     <a href="https://github.com/MiloszStochaj"
-      ><mat-icon>
-        <i class="fa-brands fa-github fa-2x"></i> </mat-icon
+      ><mat-icon> <i class="fa-brands fa-github fa-2x"></i> </mat-icon
     ></a>
     <a href="https://www.linkedin.com/in/mi%C5%82osz-stochaj-931296125/"
       ><mat-icon><i class="fa-brands fa-linkedin fa-2x"></i></mat-icon
     ></a>
   </div>
- 
 </footer>
 
 <router-outlet></router-outlet>
