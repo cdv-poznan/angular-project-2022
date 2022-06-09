@@ -1,5 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
+import {PageEvent} from '@angular/material/paginator';
 import {Table} from './model/table';
 import {TableResponse} from './model/table-response';
 
@@ -9,12 +10,9 @@ import {TableResponse} from './model/table-response';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit {
-  public tables: Table[]
+  public tables: Table[];
+  public pageSlice: any;
   displayedColumns: string[] = ['id', 'rate', 'price'];
-  
-  
-    
-  
 
   constructor(private HttpClient: HttpClient) {}
 
@@ -37,15 +35,23 @@ export class TableComponent implements OnInit {
         };
       });
 
-      // console.log(CreateArray);
+      CreateArray.shift();
       this.tables = CreateArray;
-      console.log(this.tables)
+
+      this.pageSlice = CreateArray.slice(0, 8);
     });
   }
 
- 
-
   public getPrices() {
     return this.HttpClient.get<TableResponse>('https://api.vatcomply.com/rates');
+  }
+
+  onPageChange(event: PageEvent) {
+    const startIndex = event.pageIndex * event.pageSize;
+    let endIndex = startIndex + event.pageSize;
+    if (endIndex > this.tables.length) {
+      endIndex = this.tables.length;
+    }
+    this.pageSlice = this.tables.slice(startIndex, endIndex);
   }
 }

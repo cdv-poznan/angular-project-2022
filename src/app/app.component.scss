@@ -2,14 +2,13 @@
   display: block;
 }
 
-:host {
-  display: block;
-}
+
 
 // Front site
 
 .front__site {
   height: 100vh;
+  background: linear-gradient(0deg, rgba(250,0,104,1) 0%, rgba(253,156,45,1) 88%);
 }
 
 mat-toolbar {
@@ -46,7 +45,22 @@ button {
   margin-left: 0;
 }
 
+
+// Prices Table
+.prices{
+  margin: 5rem;
+}
+
+.prices h1{
+ text-align: left;
+ margin: 5rem 0 4rem 1rem;
+}
+
 // Footer
+footer{
+  margin: 5rem;
+}
+
 .footer__copyright {
   font-size: 1.5rem;
   text-align: center;
@@ -60,7 +74,6 @@ button {
 .links__icons {
   margin-top: 3rem;
   text-align: center;
- 
 }
 
 .fa-twitter {
