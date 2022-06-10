@@ -14,10 +14,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {MatTabsModule} from '@angular/material/tabs';
 import { TableUsdComponent } from './table-usd/table-usd.component';
+import { CalculatorComponent } from './calculator/calculator.component';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
-  declarations: [AppComponent, TableComponent, TableUsdComponent],
+  declarations: [AppComponent, TableComponent, TableUsdComponent, CalculatorComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -31,6 +33,7 @@ import { TableUsdComponent } from './table-usd/table-usd.component';
     FontAwesomeModule,
     HttpClientModule,
     MatTabsModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

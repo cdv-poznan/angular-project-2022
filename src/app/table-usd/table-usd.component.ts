@@ -1,20 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { TableUsdResponse } from './model/table-usd-response';
-import { PageEvent } from '@angular/material/paginator';
-import { TableUsd } from './model/table-usd';
+import {TableUsdResponse} from './model/table-usd-response';
+import {PageEvent} from '@angular/material/paginator';
+import {TableUsd} from './model/table-usd';
 
 @Component({
   selector: 'app-table-usd',
   templateUrl: './table-usd.component.html',
-  styleUrls: ['./table-usd.component.scss']
+  styleUrls: ['./table-usd.component.scss'],
 })
 export class TableUsdComponent implements OnInit {
   public tables: TableUsd[];
   public pageSlice: any;
   displayedColumns: string[] = ['id', 'rate', 'price'];
 
-  constructor(private HttpClient: HttpClient) { }
+  constructor(private HttpClient: HttpClient) {}
 
   ngOnInit(): void {
     this.getPricesUsd().subscribe(responseUsd => {
@@ -35,11 +35,12 @@ export class TableUsdComponent implements OnInit {
         };
       });
 
-      
+      CreateArray.shift()
+      CreateArray.shift()
+
       this.tables = CreateArray;
 
       this.pageSlice = CreateArray.slice(0, 8);
-      console.log(CreateArray)
     });
   }
 
@@ -55,5 +56,4 @@ export class TableUsdComponent implements OnInit {
     }
     this.pageSlice = this.tables.slice(startIndex, endIndex);
   }
-
 }
