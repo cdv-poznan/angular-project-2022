@@ -16,6 +16,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { TableUsdComponent } from './table-usd/table-usd.component';
 import { CalculatorComponent } from './calculator/calculator.component';
 import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import {MatInputModule} from '@angular/material/input';
     HttpClientModule,
     MatTabsModule,
     MatInputModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
