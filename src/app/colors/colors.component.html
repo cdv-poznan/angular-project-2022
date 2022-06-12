@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-card-header>
+    <mat-icon mat-card-avatar>palette</mat-icon>
+    <mat-card-title>Colors</mat-card-title>
+    <mat-card-subtitle>   List of Pantone colors of the year  </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-list>
+   <mat-list-item *ngFor="let color of color">
+     <mat-icon 
+     mat-list-icon
+     [ngStyle]="{color: color.color, backgroundColor: '#eee'}">
+     palette
+     </mat-icon>
+     <div mat-line>{{ color.name }}</div>
+     <div mat-line>{{ color.color }} {{ color.year }}</div>
+
+     <button mat-icon-button
+             matTooltip="Copy color HEX to clipboard"
+             [cdkCopyToClipboard]="color.color"
+             (cdkCopyToClipboardCopied)="onCopiedToClipboard()"
+             >
+       <mat-icon>content_copy</mat-icon>
+     </button>
+   </mat-list-item>
+  </mat-list>
+
+  <mat-paginator
+    [length]="total"
+    [pageSize]="perPage"
+    (page)="onPageChange($event)"
+  >
+</mat-paginator>
+  </mat-card-content>
+</mat-card>
