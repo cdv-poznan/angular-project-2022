@@ -6,10 +6,14 @@ import {ListOfResultsComponent} from './list-of-results/list-of-results.componen
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, ListOfResultsComponent],
-  imports: [MatFormFieldModule, MatButtonModule, MatIconModule, BrowserModule, AppRoutingModule],
+  declarations: [AppComponent, ListOfResultsComponent, HomeComponent],
+  imports: [MatListModule, MatCardModule, HttpClientModule, MatFormFieldModule, MatButtonModule, MatIconModule, BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

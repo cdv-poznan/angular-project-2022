@@ -1,1 +1,26 @@
-<p>Results   wsdasda</p>
+
+<mat-card>
+    <mat-card-header>
+        <mat-icon mat-card-avatar>
+            <!-- palette -->
+        </mat-icon>
+      <mat-card-title>Books</mat-card-title>
+      <mat-card-subtitle> List of results </mat-card-subtitle>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item *ngFor="let book of books">
+            <mat-icon
+                mat-list-icon
+                [ngStyle]="{title: book.title, backgroundColor: 'green'}">
+                <!-- home -->
+            </mat-icon>
+          <div mat-line>{{ book.title }}</div>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+    <mat-icon>
+        <!-- home -->
+    </mat-icon>
+  </mat-card>

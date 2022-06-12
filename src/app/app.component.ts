@@ -1,10 +1,13 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
+
+
 export class AppComponent {
-  title = 'Angular Project 2022';
+  title = 'Book Search';
 }
