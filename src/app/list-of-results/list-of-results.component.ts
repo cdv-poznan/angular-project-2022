@@ -12,6 +12,8 @@ export class ListOfResultsComponent implements OnInit {
 
   books: Book[];
   num_found: number = 0;
+  @Input() TextQuery:string;
+  
   
   constructor(private httpClient: HttpClient) { }
 
@@ -22,9 +24,10 @@ export class ListOfResultsComponent implements OnInit {
   }
 
   getBooks() {
-    this.httpClient.get<BookResponse>('https://openlibrary.org/search.json?q=Zielona').subscribe((response: BookResponse) => {
+    this.httpClient.get<BookResponse>(`https://openlibrary.org/search.json?q=${this.TextQuery}`).subscribe((response: BookResponse) => {
       this.books = response.docs;
       this.num_found = response.num_found;
+      console.log(this.TextQuery);
     })
   
   }

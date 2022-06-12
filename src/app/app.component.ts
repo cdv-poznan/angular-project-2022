@@ -8,6 +8,8 @@ import {Component, Input} from '@angular/core';
 })
 
 
+
 export class AppComponent {
   title = 'Book Search';
+  TextQuery = 'Zielona';
 }
