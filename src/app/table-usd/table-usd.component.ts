@@ -12,40 +12,53 @@ import {TableUsd} from './model/table-usd';
 export class TableUsdComponent implements OnInit {
   public tables: TableUsd[];
   public pageSlice: any;
-  displayedColumns: string[] = ['id', 'rate', 'price'];
+  displayedColumns: string[] = ['id', 'rate', 'price', 'prevPrice', 'change'];
 
   constructor(private HttpClient: HttpClient) {}
 
   ngOnInit(): void {
+    //Get Today Prices
     this.getPricesUsd().subscribe(responseUsd => {
-      const obj = responseUsd.rates;
+      //Get Yesterday Prices
+      this.getLastUsdPrices().subscribe(responseUsdPrev => {
+        const objPrev = responseUsdPrev.rates;
+        const obj = responseUsd.rates;
 
-      const rate = Object.keys(obj);
-      const price = Object.values(obj);
+        const rate = Object.keys(obj);
+        const price = Object.values(obj);
+        const prevPrice = Object.values(objPrev);
 
-      let ids = Array.from(Array(32).keys());
+        let ids = Array.from(Array(32).keys());
 
-      // Create the object array
+        // Create the object array
 
-      let CreateArray = ids.map((id, index) => {
-        return {
-          id: id,
-          rate: rate[index],
-          price: price[index],
-        };
+        let CreateArray = ids.map((id, index) => {
+          return {
+            id: id,
+            rate: rate[index],
+            price: price[index],
+            prevPrice: prevPrice[index],
+          };
+        });
+
+        CreateArray.shift();
+        CreateArray.shift();
+        this.tables = CreateArray;
+        console.log(this.tables);
+        this.pageSlice = CreateArray.slice(0, 8);
       });
-
-      CreateArray.shift()
-      CreateArray.shift()
-
-      this.tables = CreateArray;
-
-      this.pageSlice = CreateArray.slice(0, 8);
     });
   }
 
   public getPricesUsd() {
     return this.HttpClient.get<TableUsdResponse>('https://api.vatcomply.com/rates?base=USD');
+  }
+
+  public getLastUsdPrices() {
+    const lastDayDate = new Date();
+    lastDayDate.setDate(lastDayDate.getDate() - 2);
+    const formatDate = lastDayDate.toISOString().slice(0, 10);
+    return this.HttpClient.get<TableUsdResponse>(` https://api.vatcomply.com/rates?date=${formatDate}&base=USD`);
   }
 
   onPageChange(event: PageEvent) {
