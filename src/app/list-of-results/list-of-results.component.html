@@ -1,26 +1,16 @@
 
 <mat-card>
-    <mat-card-header>
-        <mat-icon mat-card-avatar>
-            <!-- palette -->
-        </mat-icon>
-      <mat-card-title>Books</mat-card-title>
-      <mat-card-subtitle> List of results </mat-card-subtitle>
-    </mat-card-header>
-  
     <mat-card-content>
       <mat-list>
         <mat-list-item *ngFor="let book of books">
             <mat-icon
                 mat-list-icon
-                [ngStyle]="{title: book.title, backgroundColor: 'green'}">
-                <!-- home -->
+                [ngStyle]="{backgroundColor: 'green'}">
             </mat-icon>
           <div mat-line>{{ book.title }}</div>
+          <div mat-line>First publish year = {{ book.first_publish_year }}</div>
+          <div mat-line>Number of pages = {{ book.number_of_pages_median }}</div>
         </mat-list-item>
       </mat-list>
     </mat-card-content>
-    <mat-icon>
-        <!-- home -->
-    </mat-icon>
   </mat-card>

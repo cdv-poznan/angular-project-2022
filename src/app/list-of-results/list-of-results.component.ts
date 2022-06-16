@@ -12,24 +12,34 @@ export class ListOfResultsComponent implements OnInit {
 
   books: Book[];
   num_found: number = 0;
-  @Input() TextQuery:string;
+  // @Input() public TextQuery:string;  
+
+  private _TextQuery:any;
+
+  @Input()
+  set TextQuery(value: string) {
+    this._TextQuery = value;
+    console.log(`title is changed to ${value}`);
+  }
+  get TextQuery(): string {
+    return this._TextQuery;
+  }
   
   
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit(): void {
-    this.getBooks();
-    console.log(this.books);
-    console.log(this.num_found);
+
+    this.getBooks(this.TextQuery);
+    console.log(this._TextQuery);
+
   }
 
-  getBooks() {
-    this.httpClient.get<BookResponse>(`https://openlibrary.org/search.json?q=${this.TextQuery}`).subscribe((response: BookResponse) => {
+  getBooks(event:string) {
+    this.httpClient.get<BookResponse>(`https://openlibrary.org/search.json?q=${event}`).subscribe((response: BookResponse) => {
       this.books = response.docs;
       this.num_found = response.num_found;
-      console.log(this.TextQuery);
     })
-  
   }
 }
 
