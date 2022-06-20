@@ -44,7 +44,6 @@ export class TableUsdComponent implements OnInit {
         CreateArray.shift();
         CreateArray.shift();
         this.tables = CreateArray;
-        console.log(this.tables);
         this.pageSlice = CreateArray.slice(0, 8);
       });
     });
