@@ -96,3 +96,34 @@ footer{
   color: rgb(0, 69, 133);
   
 }
+
+/* -----max-width: 767px-------*/
+
+@media all and (max-width: 767px) {
+  .main__title {
+    margin:1rem;
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .prices{
+    margin: 0rem;
+  }
+
+ 
+}
+
+/* -----max-width: 992px-------*/
+@media all and (max-width: 992px) {
+  .links__icons {
+    margin: 5rem auto auto auto;
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+  
+  }
+
+  .footer__copyright {
+    margin: 0;
+  }
+}

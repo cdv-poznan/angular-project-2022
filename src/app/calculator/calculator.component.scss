@@ -6,3 +6,18 @@
     margin: 0 5rem;
     font-size: 1.5rem;
 }
+
+
+
+/* -----max-width: 767px-------*/
+@media all and (max-width: 767px) {
+  :host {
+    display: inline-block;
+  }
+
+  .results{
+    margin: 0;
+    font-size: 1.5rem;
+}
+ 
+ }
