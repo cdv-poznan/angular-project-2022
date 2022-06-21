@@ -8,6 +8,11 @@ import {Component} from '@angular/core';
 export class AppComponent {
   title = 'Angular Project 2022';
   
-  
+  toQuotes(){
+    document.getElementById("quotes").scrollIntoView({behavior: "smooth"});
+  }
+  toAbout(){
+    document.getElementById("about").scrollIntoView({behavior: "smooth"});
+  }
 }
 

@@ -3,12 +3,12 @@
     <h1>FX COIN</h1>
 
     <nav>
-      <button mat-raised-button color="basic">
+      <button mat-raised-button color="basic" (click)="toQuotes()">
         <mat-icon>attach_money</mat-icon>
         <span>Quotes</span>
       </button>
 
-      <button mat-raised-button color="basic">
+      <button mat-raised-button color="basic" (click)="toAbout()">
         <mat-icon>badge</mat-icon>
         <span>About</span>
       </button>
@@ -21,11 +21,11 @@
       checking <br />
       currency prices
     </h1>
-    <button mat-flat-button>Get more</button>
+    <button mat-flat-button (click)="toQuotes()">Get more</button>
   </div>
 </section>
 
-<section class="prices">
+<section id="quotes" class="prices">
   <mat-tab-group mat-align-tabs="start">
     <mat-tab>
       <ng-template mat-tab-label>
@@ -48,7 +48,7 @@
   </mat-tab-group>
 </section>
 
-<footer>
+<footer id="about">
   <p class="footer__copyright">
     &copy; Copyright by
     <a target="_blank" href="https://github.com/MiloszStochaj"
