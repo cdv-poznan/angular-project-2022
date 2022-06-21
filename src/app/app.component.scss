@@ -60,9 +60,13 @@ button {
 // Footer
 footer{
   margin: 5rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .footer__copyright {
+  margin: 5rem;
   font-size: 1.5rem;
   text-align: center;
 }
@@ -73,8 +77,11 @@ footer{
 }
 
 .links__icons {
-  margin-top: 3rem;
-  text-align: center;
+  margin: 5rem auto auto auto;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+
 }
 
 .fa-twitter {
@@ -82,7 +89,7 @@ footer{
 }
 
 .fa-github {
-  color: rgb(41, 41, 41);
+  color: rgb(35, 34, 34);
 }
 
 .fa-linkedin {
