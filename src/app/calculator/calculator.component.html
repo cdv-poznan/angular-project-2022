@@ -26,13 +26,13 @@
           <tr>
               <mat-form-field class="example-form-field" appearance="fill">
                 <mat-label>Take profit</mat-label>
-                <input matInput type="number" step="0.01" name="profit" [(ngModel)]="profit">
+                <input matInput type="number" step="0.01" name="takeProfit" [(ngModel)]="takeProfit">
               </mat-form-field>
           </tr>
            <tr>
               <mat-form-field class="example-form-field" appearance="fill">
                 <mat-label>Stop loss</mat-label>
-                <input matInput type="number" step="0.01" name="stop" [(ngModel)]="stop">
+                <input matInput type="number" step="0.01" name="stopLoss" [(ngModel)]="stopLoss">
               </mat-form-field>
           </tr>
           <tr>
@@ -57,5 +57,13 @@
         </td> -->
   </table>
 
+  
 
- 
+  <div class="results" *ngFor="let result of results">
+      <p [ngStyle]="{'color' : 'green'}">Expected profit: <span>{{ result.profit | number: '.2-2' }}</span></p>
+      <p [ngStyle]="{'color' : 'red'}">Expected loss: <span>{{ result.loss | number: '.2-2' }}</span></p>
+      <p >Required deposit: <span>{{ result.reqDep | number: '.2-2' }}</span></p>
+  </div>
+
+
+
