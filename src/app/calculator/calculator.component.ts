@@ -48,6 +48,9 @@ public laverage: number;
  
  }
 
+ removeAll(){
+   this.results = [];
+ }
 
 
   ngOnInit(): void {
