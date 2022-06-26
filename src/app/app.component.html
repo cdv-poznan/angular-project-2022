@@ -1,3 +1,15 @@
-<h1>{{ title }}</h1>
+<div>
+    <img src="../assets/logo booksearch.png" id="logo">
+    <div id="div_to_search">
+            <textarea [(ngModel)]="TextQuery" id="Text-to-search"></textarea>
+    </div>
+    <div id = "Search_div">
+        <button id = "Search" (click)= "onClick(TextQuery)" routerLink="/list-of-results">
+            Search
+        </button>
+    </div>
+</div>
 
+<app-list-of-results [TextQuery]="TextQuery"></app-list-of-results>
 <router-outlet></router-outlet>
+
