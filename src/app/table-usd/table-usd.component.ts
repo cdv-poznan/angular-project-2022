@@ -62,12 +62,11 @@ export class TableUsdComponent implements OnInit {
       return date.getDay() === 1;
     }
 
-    const today = new Date();
     const lastDayDate = new Date();
 
-    if (isSunday(today) === true) {
+    if (isSunday(lastDayDate) === true) {
       lastDayDate.setDate(lastDayDate.getDate() - 3);
-    } else if (isMonday(today) === true) {
+    } else if (isMonday(lastDayDate) === true) {
       lastDayDate.setDate(lastDayDate.getDate() - 4);
     } else {
       lastDayDate.setDate(lastDayDate.getDate() - 2);
