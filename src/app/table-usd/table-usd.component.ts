@@ -54,8 +54,25 @@ export class TableUsdComponent implements OnInit {
   }
 
   public getLastUsdPrices() {
+    function isSunday(date = new Date()) {
+      return date.getDay() === 0;
+    }
+
+    function isMonday(date = new Date()) {
+      return date.getDay() === 1;
+    }
+
+    const today = new Date();
     const lastDayDate = new Date();
-    lastDayDate.setDate(lastDayDate.getDate() - 2);
+
+    if (isSunday(today) === true) {
+      lastDayDate.setDate(lastDayDate.getDate() - 3);
+    } else if (isMonday(today) === true) {
+      lastDayDate.setDate(lastDayDate.getDate() - 4);
+    } else {
+      lastDayDate.setDate(lastDayDate.getDate() - 2);
+    }
+
     const formatDate = lastDayDate.toISOString().slice(0, 10);
     return this.HttpClient.get<TableUsdResponse>(` https://api.vatcomply.com/rates?date=${formatDate}&base=USD`);
   }

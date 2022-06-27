@@ -1,6 +1,8 @@
+import {isPlatformBrowser} from '@angular/common';
 import {HttpClient} from '@angular/common/http';
 import {Component, OnInit} from '@angular/core';
 import {PageEvent} from '@angular/material/paginator';
+import {faArrowDown91} from '@fortawesome/free-solid-svg-icons';
 import {Table} from './model/table';
 import {TableResponse} from './model/table-response';
 
@@ -19,7 +21,6 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
     //Get Today Prices
     this.getPrices().subscribe(response => {
-      
       //Get Yesterday Prices
       this.getLastPrices().subscribe(responsePrev => {
         const objPrev = responsePrev.rates;
@@ -49,21 +50,37 @@ export class TableComponent implements OnInit {
       });
     });
   }
-  
+
   public getPrices() {
     return this.HttpClient.get<TableResponse>('https://api.vatcomply.com/rates');
-    
   }
- 
 
   public getLastPrices() {
+    function isSunday(date = new Date()) {
+      return date.getDay() === 0;
+    }
+
+    function isMonday(date = new Date()) {
+      return date.getDay() === 1;
+    }
+
+    const today = new Date();
     const lastDayDate = new Date();
-    lastDayDate.setDate(lastDayDate.getDate() - 2);
+
+    if (isSunday(today) === true) {
+      lastDayDate.setDate(lastDayDate.getDate() - 3);
+    } else if (isMonday(today) === true) {
+      lastDayDate.setDate(lastDayDate.getDate() - 4);
+    } else {
+      lastDayDate.setDate(lastDayDate.getDate() - 2);
+    }
+
     const formatDate = lastDayDate.toISOString().slice(0, 10);
+    console.log(today);
+    console.log(lastDayDate);
+    console.log(formatDate);
     return this.HttpClient.get<TableResponse>(`https://api.vatcomply.com/rates?date=${formatDate}`);
   }
-
-
 
   onPageChange(event: PageEvent) {
     const startIndex = event.pageIndex * event.pageSize;
@@ -73,7 +90,4 @@ export class TableComponent implements OnInit {
     }
     this.pageSlice = this.tables.slice(startIndex, endIndex);
   }
-
-
-
 }
