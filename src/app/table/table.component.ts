@@ -75,8 +75,6 @@ export class TableComponent implements OnInit {
     }
     const formatDate = lastDayDate.toISOString().slice(0, 10);
 
-    console.log(lastDayDate);
-    console.log(formatDate);
     return this.HttpClient.get<TableResponse>(`https://api.vatcomply.com/rates?date=${formatDate}`);
   }
 
