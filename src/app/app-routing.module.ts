@@ -1,21 +1,26 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {AboutComponent} from './about/about.component';
 import {HomeComponent} from './home/home.component';
-import {ColorsComponent} from './colors/colors.component';
-import {ReminderComponent} from './reminder/reminder.component';
+import {MovieDetailComponent} from './movies/movie-detail/movie-detail.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomeComponent,
   },
   {
-    path: 'colors',
-    component: ColorsComponent,
+    path: 'about',
+    component: AboutComponent,
   },
   {
-    path: 'reminder',
-    component: ReminderComponent,
+    path: 'movies/:id',
+    component: MovieDetailComponent,
+  },
+  {
+    path: '**',
+    redirectTo: 'home',
+    pathMatch: 'full',
   },
 ];
 

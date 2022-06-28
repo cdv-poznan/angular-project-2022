@@ -1,0 +1,23 @@
+<search-form
+  class="center"
+  (newMovieTitleEvent)="getMoviesList($event)"
+></search-form>
+
+<div class="container">
+  <div
+    class="movie-box"
+    hover-class="details-link"
+    *ngFor="let movie of paginatedMovies"
+    [routerLink]="['/movies', movie.id]"
+  >
+    <img class="image" [src]="movie.image" />
+    <h2 class="title">{{ movie.title }}</h2>
+    <p>{{ movie.description }}</p>
+  </div>
+
+  <mat-paginator
+    [length]="totalPages"
+    [pageSize]="perPage"
+    (page)="onPageChange($event)"
+  ></mat-paginator>
+</div>

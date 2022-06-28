@@ -1,0 +1,30 @@
+<!-- <div class="detail-back-to-search">
+  <button class="btn-back-to-search">
+    <a routerLink="/home"> Go to search </a>
+  </button>
+</div> -->
+<div class="detail-container">
+  <div class="left">
+    <img class="detail-image" [src]="movieDetails?.image" />
+  </div>
+  <div class="right">
+    <h1 class="detail-title">{{ movieDetails?.fullTitle }}</h1>
+    <p class="detail-director">by {{ movieDetails?.directors }}</p>
+    <div class="detail-genre-box">
+      <p class="detail-genre-title">Genres:</p>
+      <p class="detail-genre">{{ movieDetails?.genres }}</p>
+    </div>
+    <p>{{ movieDetails?.plot }}</p>
+    <div class="detail-rating-box">
+      <p class="detail-rating-title">IMDB Rating:</p>
+      <p class="detail-rating-number">{{ movieDetails?.imDbRating }}</p>
+    </div>
+    <p>Movie Stars:</p>
+    <ul *ngFor="let star of movieDetails?.starList">
+      <li>
+        {{ star.name }}
+      </li>
+    </ul>
+    <p>{{ movieDetails?.awards }}</p>
+  </div>
+</div>

@@ -1,7 +1,5 @@
 import {Component} from '@angular/core';
-import {Auth} from '@angular/fire/auth';
-import {GoogleAuthProvider, signInWithPopup} from '@firebase/auth';
-import {TranslateService} from '@ngx-translate/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,24 +7,11 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Angular Project 2022';
-  constructor(private translateService: TranslateService, public auth: Auth) {}
+  title = 'Find Your Movie';
+  constructor(public router: Router) {}
 
-  ngOnInit() {
-    this.translateService.use('es');
+  movetoSearchMoviePage() {
+    this.router.navigate(['/search-movie']);
   }
-  changeLanguage() {
-    if (this.translateService.currentLang === 'pl') {
-      this.translateService.use('en');
-    } else {
-      this.translateService.use('pl');
-    }
-  }
-
-  signInWithGoogle() {
-    signInWithPopup(this.auth, new GoogleAuthProvider());
-  }
-  signOut() {
-    this.auth.signOut();
-  }
+  movieSearch() {}
 }

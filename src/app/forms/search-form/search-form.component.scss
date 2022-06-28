@@ -1,0 +1,21 @@
+input {
+  font-size: 20px;
+  border: 2px solid;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  margin: 30px auto 10px auto;
+}
+button {
+  font-size: 18px;
+  background-color: #47adb0;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+button:disabled {
+  background-color: #6c6d6d;
+  color: #fff;
+  border: none;
+  opacity: 0.6;
+}

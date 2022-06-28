@@ -1,0 +1,26 @@
+.about {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+}
+mat-card {
+  width: 80%;
+  margin: 20px auto;
+}
+.mat-card-title {
+  font-size: 2em;
+  font-weight: bold;
+}
+.mat-card-subtitle {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: rgb(163, 192, 0);
+}
+p {
+  font-size: 1.4em;
+  line-height: 1.4em;
+  color: rgb(0, 0, 0);
+}

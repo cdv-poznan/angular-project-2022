@@ -1,65 +1,47 @@
-// angular
 import {NgModule} from '@angular/core';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {BrowserModule} from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {FormsModule} from '@angular/forms';
-// angular materials
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
-import {MatCardModule} from '@angular/material/card';
-import {MatListModule} from '@angular/material/list';
-import {ColorsComponent} from './colors/colors.component';
-import {ClipboardModule} from '@angular/cdk/clipboard';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 // custom components
 import {HomeComponent} from './home/home.component';
-import {ReminderComponent} from './reminder/reminder.component';
-// firebase services and enviorment module
-import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
-import {environment} from '../environments/environment';
-import {provideAuth, getAuth} from '@angular/fire/auth';
-import {provideFirestore, getFirestore} from '@angular/fire/firestore';
-// ngx-translate
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
+import {AboutComponent} from './about/about.component';
+// angular materials
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {HttpClientModule} from '@angular/common/http';
+import {MoviesComponent} from './movies/movies.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {SearchFormComponent} from './forms/search-form/search-form.component';
+import {MovieDetailComponent} from './movies/movie-detail/movie-detail.component';
+import {HoverDirective} from './hover.directive';
 
 @NgModule({
-  declarations: [AppComponent, ColorsComponent, HomeComponent, ReminderComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    AboutComponent,
+    MoviesComponent,
+    SearchFormComponent,
+    MovieDetailComponent,
+    HoverDirective,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatToolbarModule,
-    MatButtonModule,
     MatIconModule,
+    MatButtonModule,
     MatCardModule,
     MatListModule,
-    MatTooltipModule,
-    ClipboardModule,
-    MatSnackBarModule,
     MatPaginatorModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()),
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      },
-    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

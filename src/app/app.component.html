@@ -1,30 +1,23 @@
 <mat-toolbar>
-  <h1>{{ 'title' | translate }}</h1>
+  <h1>{{ title }}</h1>
   <nav>
-    <button mat-raised-button color="primary" routerLink="/">
-      <mat-icon>house</mat-icon>
-      <span>{{ 'home' | translate }}</span>
+    <button
+      class="go-to-search-button"
+      *ngIf="router.url != '/home'"
+      (click)="movetoSearchMoviePage()"
+    >
+      Go to search
     </button>
 
-    <button mat-raised-button color="accent" routerLink="/colors">
-      <mat-icon>palette</mat-icon>
-      <span> {{ 'colors' | translate }}</span>
+    <button mat-raised-button color="primary" routerLink="/home">
+      <mat-icon>house</mat-icon>
+      <span> Home </span>
     </button>
-    <button mat-raised-button color="warn" routerLink="/reminder">
-      <mat-icon>notifications_active</mat-icon>
-      <span>{{ 'reminder' | translate }}</span>
+    <button mat-raised-button color="primary" routerLink="/about">
+      <mat-icon>info</mat-icon>
+      <span> About </span>
     </button>
   </nav>
-  <button mat-icon-button (click)="changeLanguage()">
-    <mat-icon>language</mat-icon>
-  </button>
-  <button mat-button (click)="signInWithGoogle()" *ngIf="!auth.currentUser">
-    Sign up with google
-  </button>
-  <button mat-button *ngIf="auth.currentUser" (click)="signOut()">
-    Sign Out:
-    <span> {{ auth.currentUser?.email }}</span>
-  </button>
 </mat-toolbar>
 
 <router-outlet></router-outlet>
