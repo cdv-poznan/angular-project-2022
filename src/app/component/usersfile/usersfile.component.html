@@ -1,31 +1,35 @@
-<div *ngIf="response" class="card">
+<div class="userfileContainer">
+<mat-card *ngIf="response" class="card">
     <div class="card-body">
-        <h5>Know your users better!</h5>
+        <h4>Know your users better!</h4>
        <h5> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla cupiditate deserunt sint aliquid praesentium corporis exercitationem! Dolore, ipsum est. Quas magni doloremque optio quae iure eum quaerat quibusdam est ad.
        Alias vero cumque natus incidunt quis error! Porro neque labore maxime excepturi cupiditate quo nemo et odio animi ipsam? Facere, numquam. Reprehenderit delectus asperiores quis rerum, totam aperiam quos quasi.
        Esse dolor mollitia inventore natus temporibus fuga expedita eum aliquid ad, reprehenderit modi ab earum et culpa. Molestias, ad! Architecto distinctio, maxime ipsum officia autem et! Possimus dicta perferendis ad?</h5>
     </div>
+</mat-card>
+<div class="table">
+    <br>
+    <table *ngIf="response" class="table">
+        <thead class="table">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Image</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of response?.results; let i = index">
+                <td>{{ user.uuid.substr(0, 6) }}</td>
+                <td><img [src]="user.imageUrl" height="45" width="45" style="border-radius: 50%;" alt="user.firstName"></td>
+                <td>{{ user.firstName }} {{ user.lastName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.address }}</td>
+             
+            </tr>
+        </tbody>
+    </table>
 </div>
-<br>
-<table *ngIf="response" class="table">
-    <thead class="table">
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Image</th>
-            <th scope="col">Name</th>
-            <th scope="col">Email</th>
-            <th scope="col">Address</th>
-           
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let user of response?.results; let i = index">
-            <td>{{ user.uuid.substr(0, 6) }}</td>
-            <td><img [src]="user.imageUrl" height="45" width="45" style="border-radius: 50%;" alt="user.firstName"></td>
-            <td>{{ user.firstName }} {{ user.lastName }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.address }}</td>
-         
-        </tr>
-    </tbody>
-</table>
+</div>

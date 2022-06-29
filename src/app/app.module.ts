@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsersfileComponent } from './component/usersfile/usersfile.component';
 import { MoreinfosComponent } from './component/moreinfos/moreinfos.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatCardModule} from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +18,9 @@ import { MoreinfosComponent } from './component/moreinfos/moreinfos.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule, 
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
