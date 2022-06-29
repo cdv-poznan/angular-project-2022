@@ -19,6 +19,7 @@ import { AboutUsComponent } from './component/about-us/about-us.component';
 import { HomeComponent } from './component/home/home.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
