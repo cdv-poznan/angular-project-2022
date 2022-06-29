@@ -13,7 +13,7 @@ export class UsersfileComponent implements OnInit {
   constructor(private userService: UserServiceService) { }
 
   ngOnInit(): void {
-    this.userService.getUsers(10).subscribe(
+    this.userService.getRandomUsers(15).subscribe(
       (results: Response) => {
         console.log(results);
         this.response = results;

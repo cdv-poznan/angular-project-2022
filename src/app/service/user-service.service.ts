@@ -15,13 +15,13 @@ export class UserServiceService {
 
   //pobieranie z api określonej liczby userów 
   // fetch przez httpć
-  getUsers(size: number = 10): Observable<any> {
+  getRandomUsers(size: number = 10): Observable<any> {
     return this.http.get<any>(`${this.randomUserUrl}?results=${size}`).pipe(
-      map(response => this.processResponse(response)));
+      map(response => this.UserProcessResponse(response)));
   // zwróć to api  this... np.'?=5' w tym przypadku pobierze 5
   }
   
-  private processResponse(response: Response): Response {
+  private UserProcessResponse(response: Response): Response {
     return {
       // ...response info -> KOPIUJEMY TO CO JEST w klasie info w api
       info: { ...response.info },
