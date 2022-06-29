@@ -1,3 +1,72 @@
-<h1>{{ title }}</h1>
+<section class="front__site">
+  <mat-toolbar>
+    <h1>FX COIN</h1>
+
+    <nav>
+      <button mat-raised-button color="basic" (click)="toQuotes()">
+        <mat-icon>attach_money</mat-icon>
+        <span>Quotes</span>
+      </button>
+
+      <button mat-raised-button color="basic" (click)="toAbout()">
+        <mat-icon>badge</mat-icon>
+        <span>About</span>
+      </button>
+    </nav>
+  </mat-toolbar>
+
+  <div class="main__title">
+    <h1>
+      page for <br />
+      checking <br />
+      currency prices
+    </h1>
+    <button mat-flat-button (click)="toQuotes()">Get more</button>
+  </div>
+</section>
+
+<section id="quotes" class="prices">
+  <mat-tab-group mat-align-tabs="start">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>euro_symbol</mat-icon>
+      </ng-template>
+      <h1>Daily Euro quotes <mat-icon>ssid_chart</mat-icon></h1>
+      <app-table></app-table>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <mat-icon>attach_money</mat-icon>
+      </ng-template>
+      <h1>Daily Dollar quotes <mat-icon>ssid_chart</mat-icon></h1>
+      <app-table-usd></app-table-usd>
+    </mat-tab>
+    <mat-tab label="Investment calculator">
+      <h1>Investment calculator <mat-icon>query_stats</mat-icon></h1>
+      <app-calculator></app-calculator>
+    </mat-tab>
+  </mat-tab-group>
+</section>
+
+<footer id="about">
+  <p class="footer__copyright">
+    &copy; Copyright by
+    <a target="_blank" href="https://github.com/MiloszStochaj"
+      >Miłosz Stochaj</a
+    >
+  </p>
+
+  <div class="links__icons">
+    <a href="https://twitter.com/mi_stochaj"
+      ><mat-icon> <i class="fa-brands fa-twitter fa-2x"></i> </mat-icon
+    ></a>
+    <a href="https://github.com/MiloszStochaj"
+      ><mat-icon> <i class="fa-brands fa-github fa-2x"></i> </mat-icon
+    ></a>
+    <a href="https://www.linkedin.com/in/mi%C5%82osz-stochaj-931296125/"
+      ><mat-icon><i class="fa-brands fa-linkedin fa-2x"></i></mat-icon
+    ></a>
+  </div>
+</footer>
 
 <router-outlet></router-outlet>
