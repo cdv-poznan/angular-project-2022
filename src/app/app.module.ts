@@ -17,6 +17,8 @@ import { MatListModule } from '@angular/material/list';
 import { NotesComponent } from './component/notes/notes.component';
 import { AboutUsComponent } from './component/about-us/about-us.component';
 import { HomeComponent } from './component/home/home.component';
+import {MatInputModule} from '@angular/material/input';
+
 
 
 
@@ -35,7 +37,14 @@ import { HomeComponent } from './component/home/home.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule, 
-    MatCardModule, LayoutModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule
+    MatCardModule, 
+    LayoutModule,
+    MatToolbarModule, 
+    MatButtonModule, 
+    MatSidenavModule, 
+    MatIconModule, 
+    MatListModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
