@@ -1,0 +1,13 @@
+#holder {
+    
+        z-index: 10;
+        position: relative;
+        width: 450;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        padding: 20px;
+        text-align: center;
+        background-color: rgba(95, 25, 157, 0.55);
+}
