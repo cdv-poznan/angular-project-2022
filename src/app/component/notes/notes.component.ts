@@ -16,18 +16,14 @@ export class NotesComponent implements OnInit {
     backgroundColor: '#eef',
   };
 
-  public clear() {
-    this.text = '';
-  }
+  
 
   public addNotes() {
     const note: Notes = {
       text: this.text,
-      created: Date.now(),
-      done: false,
+      
     };
     this.notes.push(note);
-    this.clear();
 
     this.NotesServiceService.saveNotes(this.notes);
   }
