@@ -9,7 +9,7 @@ import { UsersfileComponent } from './component/usersfile/usersfile.component';
 const routes: Routes = [
   {path: 'users', component: UsersfileComponent},
   {path: 'MoreInfo/:uuid', component: MoreinfosComponent},
-  // {path: '**', redirectTo: 'app-home'},
+  {path: '**', redirectTo: 'app-about-us'},
   {path: 'app-home', component: HomeComponent},
   {path: 'app-about-us', component: AboutUsComponent},
   {path: 'app-notes', component: NotesComponent}

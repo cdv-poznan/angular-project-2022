@@ -17,11 +17,11 @@
                     placeholder="enter notes"
                     />
                     <button (click)="getValueNote(box.value)" >ADD</button>
-                    <p> {{displayValNote}} </p>
+                    <p> notes: {{displayValNote}} </p>
                     
                   </form>
+                  
                   <div *ngFor="let notesItem of notes">
-
                   <app-note
                   [noteInput]="notesItem"
                   (delete)="deleteNotes($event)">
