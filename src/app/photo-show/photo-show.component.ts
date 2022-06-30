@@ -7,15 +7,25 @@ import { PhotosService } from '../photos.service';
   styleUrls: ['./photo-show.component.scss']
 })
 export class PhotoShowComponent implements OnInit {
+  photoUrl: string;
 
   constructor(private photosService: PhotosService) {
-    this.photosService.getPhoto().subscribe(() => {
-
-
-    })
+    this.fetchPhoto();
    }
-
   ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
 
-}
+   onClick() {
+     this.fetchPhoto();
+   }
+
+   fetchPhoto() {
+    this.photosService.getPhoto().subscribe((response) => {
+      this.photoUrl = response.urls.regular;
+    });
+   }
+
+   }
+ 
+
