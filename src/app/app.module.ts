@@ -23,13 +23,15 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule } from '@angular/forms';
+import { PhotosComponent } from './photos/photos.component';
+import { PhotoShowComponent } from './photo-show/photo-show.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ColorsComponent, ReminderComponent],
+  declarations: [AppComponent, HomeComponent, ColorsComponent, ReminderComponent, PhotosComponent, PhotoShowComponent],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, FormsModule, MatToolbarModule,MatPaginatorModule, MatSnackBarModule, ClipboardModule, MatTooltipModule, MatListModule, MatButtonModule, MatIconModule, MatCardModule, HttpClientModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), 
     TranslateModule.forRoot({
     loader: {
