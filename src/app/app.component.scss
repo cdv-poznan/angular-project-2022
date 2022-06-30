@@ -1,3 +1,119 @@
 :host {
   display: block;
+  
+}
+
+body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+#nav {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5em;
+  /* min-height: 50px; */
+  background-color: #f8a500;
+  /* align-items: flex-end; */
+  display: flex;
+  justify-content: space-around;
+  text-transform: uppercase;
+}
+#nav button {
+  min-height: 48px;
+  margin-top: 2px;
+  background-color: #f8a500;
+  padding: 3vh;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  color: #f8e9b5;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  width: 28%;
+  float: left;
+  font-size: large;
+}
+#nav .tablink:hover {
+  background-color: #bb8f00;
+}
+#nav #logo {
+  cursor: default;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  height: 181px;
+  margin-top: auto;
+  width: 16%;
+  /* min-width: fit-content; */
+  z-index: 10;
+}
+#logo img {
+  height: 15vh;
+  background: none;
+  border-radius: 50%;
+}
+.btn {
+  background-color: #0019d988;
+  color: ghostwhite;
+  border: 2px #0019d988;
+  border-radius: 5px;
+  padding: 18px;
+  margin: 4px;
+  cursor: pointer;
+  width: 200px;
+  text-align: center;
+  font-size: medium;
+  border: 2px solid #001ad9;
+}
+.btn:hover {
+  background-color: #ffc400;
+  color: #001ad9;
+}
+.btn:active {
+  background-color: #ffc400;
+  box-shadow: 0 1px #001ad9;
+  transform: translateY(2px);
+}
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  main {
+    font-size: 15px;
+  }
+  .left {
+    margin-top: 0%;
+    width: auto;
+  }
+  .right{
+    margin-top: 54vh;
+  }
+  .single-section {
+    width: 100%;
+  }
+  #draw-page .single-section {
+    flex-direction: unset;
+  }
+  #nav #logo {
+    height: inherit;
+  }
+  #logo img {
+    height: 7vh;
+    border-radius: 0%;
+    max-width: fit-content;}
+    #nav button {
+      padding: 0;
+    }
+    .btn {
+      width: 90%;
+      padding: 10px;
+
+    }
+    .emojis {
+      font-size: 1.3rem;
+    }
+    #emojis-button {
+      display: none;
+    }
+    #previous-project-display {
+      margin-left: auto;
+  }
 }
