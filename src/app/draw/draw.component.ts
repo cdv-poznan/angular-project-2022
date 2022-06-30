@@ -1,83 +1,98 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-draw',
   templateUrl: './draw.component.html',
-  styleUrls: ['./draw.component.scss']
+  styleUrls: ['./draw.component.scss'],
 })
 export class DrawComponent implements OnInit {
   @ViewChild('canvas', {static: false}) canvas: ElementRef;
+  canvasPos: {x: number, y:number};
 
-constructor(){}
-
-  ngOnInit(): void {
+  getCanvas() {
+    let canvas = <HTMLCanvasElement>document.getElementById('canvas');
+    return canvas;
   }
-  ngAfterViewInit(){
-    let canvas = <HTMLCanvasElement> document.getElementById('canvas');
-    canvas.width = window.innerWidth - window.innerWidth/3;
-    canvas.height = window.innerHeight - window.innerHeight/2;
-    
-    let ctx = canvas.getContext("2d");
-    ctx.fillStyle = "white";
-    ctx.fillRect(0,0 , canvas.width, canvas.height);
-    
-    let start_background_color = "white";
-    let draw_color = start_background_color;
-    let draw_width = 2;
-    let is_drawing = false;
-    
+  constructor() {}
 
-    canvas.addEventListener("touchstart", start, false);
-    canvas.addEventListener("touchmove", draw, false);
-    canvas.addEventListener("mousedown", start, false);
-    canvas.addEventListener("mousemove", draw, false);
+  ngOnInit(): void {}
+  ngAfterViewInit() {
+    let canvas = this.getCanvas();
+    canvas.width = window.innerWidth - window.innerWidth / 3;
+    canvas.height = window.innerHeight - window.innerHeight / 2;
 
-    canvas.addEventListener("touchend", stop, false);
-    canvas.addEventListener("mouseup", stop, false);
-    canvas.addEventListener("mouseout", stop, false);
+    let ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    function start(event: any){
-      is_drawing = true;
+    function canvasSize() {
+      if (window.matchMedia('(max-width: 600px)').matches) {
+        canvas.height = window.innerHeight / 2.3;
+        canvas.width = window.innerWidth / 1;
+      } else if (window.matchMedia('(max-width: 768px)').matches) {
+        canvas.height = window.innerHeight / 2.5;
+        canvas.width = window.innerWidth / 1.2;
+      } else {
+        canvas.height = window.innerHeight / 1.5;
+        canvas.width = window.innerWidth / 2;
+      }
+    }
+    canvasSize();
+    window.addEventListener('resize', () => {
+      canvasSize();
+    });
+
+    // Canvas position
+    function getMousePos(canvas: any, e: any) {
+      var rect = canvas.getBoundingClientRect();
+      if (window.matchMedia('(max-width: 600px)').matches) {
+        const {clientX, clientY} = e.touches[0];
+        const {left, top} = rect;
+        return {
+          x: clientX - left,
+          y: clientY - top,
+        };
+      } else {
+        return {
+          x: ((e.clientX - rect.left) / (rect.right - rect.left)) * canvas.width,
+          y: ((e.clientY - rect.top) / (rect.bottom - rect.top)) * canvas.height,
+        };
+      }
+    }
+    
+    // PAINTING
+
+    let painting = false;
+    const startPosition = function () {
+      painting = true;
+    };
+    const finishPosition = function () {
+      painting = false;
       ctx.beginPath();
-      ctx.moveTo(event.clientX - canvas.offsetLeft,
-                     event.clientY - canvas.offsetTop);
-      event.preventDefault();
-    }
-    
-    function draw(event: any){
-      if(is_drawing == true){
-        ctx.lineTo(event.clientX - canvas.offsetLeft,
-                       event.clientY - canvas.offsetTop);
-        event.strokeStyle = draw_color;
-        ctx.lineWidth = draw_width;
-        ctx.lineCap = "round";
-        ctx.lineJoin = "round";
-        ctx.stroke();
-      }
-      event.preventDefault();
+    };
+
+    function draw(e: any) {
+      if (!painting) return;
+      ctx.lineWidth = 10;
+      ctx.lineCap = 'round';
+      var mousePos = getMousePos(canvas, e);
+      ctx.lineTo(mousePos.x, mousePos.y);
+      ctx.stroke();
+      ctx.save();
     }
 
-    function stop(event: any){
-      if(is_drawing){
-        ctx.stroke();
-        ctx.closePath();
-        is_drawing = false;
-      }
-      event.preventDefault();
-    }
-    
+    // Canvas event listeners
+    canvas.addEventListener('mousedown', startPosition);
+    canvas.addEventListener('mouseup', finishPosition);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('touchstart', startPosition);
+    canvas.addEventListener('touchend', finishPosition);
+    canvas.addEventListener('touchmove', draw);
   }
-  
-  
-
 
   imgLink() {
-    let canvas = <HTMLCanvasElement> document.getElementById('canvas');
-    const link = canvas.toDataURL("image/png");
+    let canvas = this.getCanvas();
+    const link = canvas.toDataURL('image/png');
     return link;
   }
- 
-
 }
-

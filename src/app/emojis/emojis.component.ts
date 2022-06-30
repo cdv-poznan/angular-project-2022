@@ -2,7 +2,7 @@ import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/c
 import {HttpClient} from '@angular/common/http';
 import {Emoji} from './model/emoji';
 import {RenderedEmoji} from './model/rendered-emojis';
-import {PageEvent} from '@angular/material/paginator';
+import {MatPaginator, PageEvent} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-emojis',
@@ -11,14 +11,16 @@ import {PageEvent} from '@angular/material/paginator';
 })
 export class EmojisComponent implements OnInit {
   // emojis = EMOJIS
-  emojis: RenderedEmoji[];
-  id: number = 0;
-  mousePos: any;
+  @ViewChild('canvas', {static: false}) canvas: ElementRef;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   @HostListener('mousedown', ['$event']) onMouseDown(event: any) {
     this.mousePos = {x: event.clientX, y: event.clientY};
   }
+  
+  emojis: RenderedEmoji[];
+  id: number = 0;
+  mousePos: any;
 
-  @ViewChild('canvas', {static: false}) canvas: ElementRef;
 
   constructor(private http: HttpClient) {}
 
@@ -41,11 +43,16 @@ export class EmojisComponent implements OnInit {
   // copyEmoji(emoji:Emoji) {
   //   console.log( emoji.character);
   // }
+ 
   onPageChange(event: PageEvent) {
     const nextPage = event.pageIndex + 20;
     this.getEmojis(nextPage);
   }
-
+  firstEmoji(){
+    this.paginator.pageIndex = 0;
+    this.getEmojis(0);
+  }
+ 
   copyAndPasteEmoji(emoji: Emoji) {
     let canvas = <HTMLCanvasElement>document.getElementById('canvas');
     let ctx = canvas.getContext('2d');
