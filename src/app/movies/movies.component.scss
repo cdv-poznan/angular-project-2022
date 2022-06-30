@@ -1,0 +1,40 @@
+.center {
+  margin: 10px auto;
+  text-align: center;
+}
+.details-link {
+  cursor: pointer;
+}
+.movie-box {
+  margin: 50px auto;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.movie-box img {
+  max-height: 400px;
+  max-width: 100%;
+}
+.title {
+  color: white;
+}
+.mat-paginator {
+  position: fixed;
+  display: block;
+  bottom: 0;
+  width: 100%;
+  background: #93938b;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+}
+.mat-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px;
+  border-bottom: 1px solid #93938b;
+  cursor: pointer;
+}

@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Angular Project 2022';
+  title = 'Find Your Movie';
+  constructor(public router: Router) {}
+
+  movetoSearchMoviePage() {
+    this.router.navigate(['/search-movie']);
+  }
+  movieSearch() {}
 }

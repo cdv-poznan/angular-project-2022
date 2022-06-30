@@ -1,3 +1,34 @@
 :host {
-  display: block;
+  font-size: 10px;
+  color: black;
+}
+nav {
+  margin: 0 20px;
+}
+nav button {
+  margin: 0 10px;
+}
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  background: #47adb0;
+  align-items: center;
+  white-space: nowrap;
+  justify-content: space-between;
+}
+.container {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.go-to-search-button {
+  background-color: #6c6d6d;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  margin: 5px auto;
+  border-radius: 5px;
+}
+.go-to-search-button:hover {
+  cursor: pointer;
 }

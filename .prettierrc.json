@@ -9,14 +9,14 @@
     {
       "files": "*.ts",
       "options": {
-        "printWidth": 140,
+        "printWidth": 60,
         "parser": "typescript"
       }
     },
     {
       "files": "*.js",
       "options": {
-        "printWidth": 140,
+        "printWidth": 60,
         "parser": "typescript"
       }
     },
@@ -24,7 +24,7 @@
       "files": "*.scss",
       "options": {
         "singleQuote": false,
-        "printWidth": 140,
+        "printWidth": 60,
         "parser": "scss"
       }
     },
