@@ -5,18 +5,22 @@
             <div class="Note">       
                 <form class="example-form">
                   
-                    <mat-form-field appearance="fill">
+                 <!-- <mat-form-field appearance="fill">
                         <mat-label>Write your notes </mat-label>
                         <input matInput 
-                        ngModel="text"
+                        ngModel="text" #box (keyUp)="getValueNote(box.value)"
                         >
-                      </mat-form-field>
-
-                  
-                    <button (click)="addNotes()">ADD</button>
-
+                      </mat-form-field>> -->
+                    <input 
+                    type="text" 
+                    #box
+                    placeholder="enter notes"
+                    />
+                    <button (click)="getValueNote(box.value)" >ADD</button>
+                    <p> {{displayValNote}} </p>
+                    
                   </form>
-                  <div *ngFor="let notesItem of notes | slice: 0:5">
+                  <div *ngFor="let notesItem of notes">
 
                   <app-note
                   [noteInput]="notesItem"

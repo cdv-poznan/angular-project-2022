@@ -11,17 +11,15 @@ export class NotesComponent implements OnInit {
   public notes: Notes[] = [];
   public text: string = '';
 
-  public style = {
-    fontSize: '24px',
-    backgroundColor: '#eef',
-  };
-
-  
+  displayValNote: string ='';
+  getValueNote(val: string){
+    console.log(val)
+    this.displayValNote=val
+  }
 
   public addNotes() {
     const note: Notes = {
       text: this.text,
-      
     };
     this.notes.push(note);
 
@@ -32,11 +30,6 @@ export class NotesComponent implements OnInit {
     const index = this.notes.indexOf(note);
     this.notes.splice(index, 1);
 
-    this.NotesServiceService.saveNotes(this.notes);
-  }
-
-  public removeAllNotes(): void {
-    this.notes = [];
     this.NotesServiceService.saveNotes(this.notes);
   }
 
