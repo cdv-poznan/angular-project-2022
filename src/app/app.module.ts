@@ -18,6 +18,7 @@ import { NotesComponent } from './component/notes/notes.component';
 import { AboutUsComponent } from './component/about-us/about-us.component';
 import { HomeComponent } from './component/home/home.component';
 import {MatInputModule} from '@angular/material/input';
+import { NoteComponent } from './component/notes/note/note.component';
 
 
 
@@ -31,6 +32,7 @@ import {MatInputModule} from '@angular/material/input';
     NotesComponent,
     AboutUsComponent,
     HomeComponent,
+    NoteComponent,
   ],
   imports: [
     BrowserModule,

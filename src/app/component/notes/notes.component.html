@@ -5,15 +5,27 @@
             <div class="Note">       
                 <form class="example-form">
                   
-                    <mat-form-field class="example-full-width" appearance="fill">
-                      <mat-label>Write a note</mat-label>
-                      <textarea matInput placeholder="Ex. Users on our app are..."></textarea>
-                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Write your notes </mat-label>
+                        <input matInput 
+                        ngModel="text"
+                        
+                        >
+                      </mat-form-field>
+
+                  
+                    <button (click)="addNotes()">ADD</button>
+
                   </form>
-                <div class="number"> notes = 0 </div>
-                <div classs="notes">content</div>
-                 <button class="remove">Delete</button>
+                  <div *ngFor="let notesItem of notes | slice: 0:5">
+
+                  <app-note
+                  [noteInput]="notesItem"
+                  (delete)="deleteNotes($event)">
+                  </app-note>
+
+              
             </div>
         </div>
-    </mat-card>
+    <!-- </mat-card> -->
 </div>
