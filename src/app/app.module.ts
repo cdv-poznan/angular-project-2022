@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
 
+
 @NgModule({
   declarations: [AppComponent, DrawComponent, ProjectsComponent, AboutComponent, EmojisComponent],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule, MatButtonModule, MatIconModule, MatPaginatorModule],

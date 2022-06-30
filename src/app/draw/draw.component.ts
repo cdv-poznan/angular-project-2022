@@ -8,16 +8,17 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 export class DrawComponent implements OnInit {
   @ViewChild('canvas', {static: false}) canvas: ElementRef;
   canvasPos: {x: number, y:number};
+  static canvas: ElementRef<any>;
 
   getCanvas() {
     let canvas = <HTMLCanvasElement>document.getElementById('canvas');
     return canvas;
   }
   constructor() {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void {};
   ngAfterViewInit() {
     let canvas = this.getCanvas();
+    let addEmojiPos: any;
     canvas.width = window.innerWidth - window.innerWidth / 3;
     canvas.height = window.innerHeight - window.innerHeight / 2;
 
@@ -51,7 +52,7 @@ export class DrawComponent implements OnInit {
         return {
           x: clientX - left,
           y: clientY - top,
-        };
+        }
       } else {
         return {
           x: ((e.clientX - rect.left) / (rect.right - rect.left)) * canvas.width,
@@ -80,6 +81,7 @@ export class DrawComponent implements OnInit {
       ctx.stroke();
       ctx.save();
     }
+  
 
     // Canvas event listeners
     canvas.addEventListener('mousedown', startPosition);
@@ -88,6 +90,7 @@ export class DrawComponent implements OnInit {
     canvas.addEventListener('touchstart', startPosition);
     canvas.addEventListener('touchend', finishPosition);
     canvas.addEventListener('touchmove', draw);
+
   }
 
   imgLink() {
