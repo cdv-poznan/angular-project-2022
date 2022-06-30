@@ -1,7 +1,7 @@
 
 <span id="generated-emojis">
     <span *ngFor="let emoji of emojis">
-        <span type="button" (click)="copyEmoji()">{{emoji.character}}</span>
+        <span type="button" (click)="copyAndPasteEmoji(this.emoji)">{{emoji.character}}</span>
     </span>
     </span>
     <mat-paginator

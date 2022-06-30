@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 
-
 @Component({
   selector: 'app-draw',
   templateUrl: './draw.component.html',
@@ -10,24 +9,24 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 export class DrawComponent implements OnInit {
   @ViewChild('canvas', {static: false}) canvas: ElementRef;
 
-
+constructor(){}
 
   ngOnInit(): void {
   }
   ngAfterViewInit(){
     let canvas = <HTMLCanvasElement> document.getElementById('canvas');
-    canvas.width = window.innerWidth - 60;
-    canvas.height = 400;
- 
+    canvas.width = window.innerWidth - window.innerWidth/3;
+    canvas.height = window.innerHeight - window.innerHeight/2;
+    
     let ctx = canvas.getContext("2d");
     ctx.fillStyle = "white";
     ctx.fillRect(0,0 , canvas.width, canvas.height);
-
+    
     let start_background_color = "white";
     let draw_color = start_background_color;
     let draw_width = 2;
     let is_drawing = false;
-
+    
 
     canvas.addEventListener("touchstart", start, false);
     canvas.addEventListener("touchmove", draw, false);
@@ -69,29 +68,7 @@ export class DrawComponent implements OnInit {
     }
     
   }
-  clearCanvas(){
-    let canvas = <HTMLCanvasElement> document.getElementById('canvas');
-    let ctx = canvas.getContext("2d");
-    //context.fillStyle = start_background_color; // start_background_color is out of scope here
-    ctx.clearRect(0, 0, canvas.width,canvas.height);
-    ctx.fillRect(0, 0, canvas.width,canvas.height);
-  }
-  getMousePos(canvas:any, e:any) {
-    var rect = canvas.getBoundingClientRect();
-    if (window.matchMedia("(max-width: 600px)").matches) {
-      const {clientX, clientY} = e.touches[0];
-      const {left, top} = rect;
-      return {
-        x: clientX - left,
-        y: clientY - top,
-      }
-    } else {
-      return {
-        x: ((e.clientX - rect.left) / (rect.right - rect.left)) * canvas.width,
-        y: ((e.clientY - rect.top) / (rect.bottom - rect.top)) * canvas.height,
-      }
-    }
-  }
+  
   
 
 
