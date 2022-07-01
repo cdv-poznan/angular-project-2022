@@ -18,7 +18,6 @@ export class DrawComponent implements OnInit {
   ngOnInit(): void {};
   ngAfterViewInit() {
     let canvas = this.getCanvas();
-    let addEmojiPos: any;
     canvas.width = window.innerWidth - window.innerWidth / 3;
     canvas.height = window.innerHeight - window.innerHeight / 2;
 
@@ -28,10 +27,10 @@ export class DrawComponent implements OnInit {
 
     function canvasSize() {
       if (window.matchMedia('(max-width: 600px)').matches) {
-        canvas.height = window.innerHeight / 2.3;
+        canvas.height = window.innerHeight / 2.5;
         canvas.width = window.innerWidth / 1;
       } else if (window.matchMedia('(max-width: 768px)').matches) {
-        canvas.height = window.innerHeight / 2.5;
+        canvas.height = window.innerHeight / 3;
         canvas.width = window.innerWidth / 1.2;
       } else {
         canvas.height = window.innerHeight / 1.5;
@@ -91,6 +90,12 @@ export class DrawComponent implements OnInit {
     canvas.addEventListener('touchend', finishPosition);
     canvas.addEventListener('touchmove', draw);
 
+  }
+  clear() {
+    let canvas = this.getCanvas();
+    let ctx = canvas.getContext('2d');
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
 
   imgLink() {

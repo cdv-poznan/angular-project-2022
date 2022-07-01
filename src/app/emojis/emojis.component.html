@@ -1,15 +1,18 @@
 
 <span id="generated-emojis">
-    <span *ngFor="let emoji of emojis">
-        <span type="button" (click)="copyAndPasteEmoji(this.emoji)">{{emoji.character}}</span>
-    </span>
-    </span>
-    <mat-paginator
-      [length]="2000"
-      [pageSize]="10"
-      (page)="onPageChange($event)"
-    >
-    </mat-paginator>
-<button id="emojis-button" class="btn" title="Back to first emojis" (click)="firstEmoji()">
+  <span *ngFor="let emoji of emojis">
+    <span type="button" (click)="copyAndPasteEmoji(this.emoji)">{{
+      emoji.character
+    }}</span>
+  </span>
+</span>
+<mat-paginator [length]="2000" [pageSize]="10" (page)="onPageChange($event)">
+</mat-paginator>
+<button
+  id="emojis-button"
+  class="btn"
+  title="Back to first emojis"
+  (click)="firstEmoji()"
+>
   Back to first emojis
 </button>

@@ -58,41 +58,28 @@ body::-webkit-scrollbar {
   main {
     font-size: 15px;
   }
-  .left {
-    margin-top: 0%;
-    width: auto;
-  }
-  .right{
-    margin-top: 54vh;
-  }
-  .single-section {
-    width: 100%;
-  }
-  #draw-page .single-section {
-    flex-direction: unset;
-  }
   #nav #logo {
     height: inherit;
   }
   #logo img {
     height: 7vh;
     border-radius: 0%;
-    max-width: fit-content;}
-    #nav button {
-      padding: 0;
-    }
-    .btn {
-      width: 90%;
-      padding: 10px;
-
-    }
-    .emojis {
-      font-size: 1.3rem;
-    }
-    #emojis-button {
-      display: none;
-    }
-    #previous-project-display {
-      margin-left: auto;
+    max-width: fit-content;
+  }
+  #nav button {
+    padding: 0;
+  }
+  .btn {
+    width: 90%;
+    padding: 10px;
+  }
+  .emojis {
+    font-size: 1.3rem;
+  }
+  #emojis-button {
+    display: none;
+  }
+  #previous-project-display {
+    margin-left: auto;
   }
 }

@@ -5,7 +5,6 @@ import {AppComponent} from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { DrawComponent } from './draw/draw.component';
-import { ProjectsComponent } from './projects/projects.component';
 import { AboutComponent } from './about/about.component';
 import { EmojisComponent } from './emojis/emojis.component';
 import {MatButtonModule} from '@angular/material/button';
@@ -15,7 +14,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
-  declarations: [AppComponent, DrawComponent, ProjectsComponent, AboutComponent, EmojisComponent],
+  declarations: [AppComponent, DrawComponent, AboutComponent, EmojisComponent],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, HttpClientModule, MatButtonModule, MatIconModule, MatPaginatorModule],
   providers: [],
   bootstrap: [AppComponent],

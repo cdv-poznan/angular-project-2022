@@ -1,8 +1,16 @@
-
 #about-me {
-    text-align: center;
-  }
+  text-align: center;
+}
 #about-me img {
-    max-width: 30vh;
-    max-height: fit-content;
-  }
+  max-width: 30vh;
+  max-height: fit-content;
+}
+.text {
+  font-size: medium;
+  display: block;
+  text-align: center;
+  padding: 20px 30px;
+  justify-content: space-between;
+  max-width: 100vh;
+  margin: auto;
+}
