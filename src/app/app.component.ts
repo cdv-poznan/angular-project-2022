@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,8 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'Angular Project 2022';
+  mousePos: any;
+  @HostListener('mousedown', ['$event']) onMouseDown(event: any) {
+    this.mousePos = {x: event.clientX, y: event.clientY};
+  }
 }
