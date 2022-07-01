@@ -1,0 +1,43 @@
+<div class="userfileContainer">
+<!-- <mat-card *ngIf="response" class="card"> -->
+    <!-- <mat-card class="card"> -->
+
+    <div class="card-body introInfo">
+        <h4> WeDiet Co. User Database </h4>
+       <h5> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque cumque aperiam, omnis, perspiciatis non ad odio nobis quos sequi vitae delectus consequatur at! Eaque placeat sunt deleniti vero quos accusantium!
+     </h5>
+    </div>
+<!-- </mat-card> -->
+<div class="table">
+    <mat-card>
+
+        <br>
+        <table *ngIf="response" class="table">
+            <thead class="table">
+                <tr>
+                    <!-- <th scope="col">ID</th> -->
+                    <th scope="col"><mat-icon>image</mat-icon></th>
+                    <th scope="col">  <mat-icon>edit</mat-icon> </th>
+                    <th scope="col"> <mat-icon>alternate_email</mat-icon> </th>
+                    <th scope="col"> <mat-icon>where_to_vote</mat-icon> </th>
+                    <!-- <th scope="col">Photo</th>
+                    <th scope="col">  Name</th>
+                    <th scope="col">  mail </th>
+                    <th scope="col"> location </th> -->
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of response?.results; let i = index">
+                    <!-- <td>{{ user.uuid.substr(0, 6) }}</td> -->
+                    <td><img [src]="user.imageUrl" height="45" width="45" style="border-radius: 50%;" alt="user.firstName"></td>
+                    <td>{{ user.firstName }} {{ user.lastName }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.address }}</td>
+                 
+                </tr>
+            </tbody>
+        </table>
+    </mat-card>
+</div>
+</div>

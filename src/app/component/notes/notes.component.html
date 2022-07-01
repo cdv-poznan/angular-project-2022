@@ -1,0 +1,34 @@
+<div id="notesHolder">
+    <mat-card>
+        <h2>Notes</h2>
+        <div class="NotesContainer">
+            <div class="Note">       
+                <form class="example-form">
+                  
+                 <!-- <mat-form-field appearance="fill">
+                        <mat-label>Write your notes </mat-label>
+                        <input matInput 
+                        ngModel="text" #box (keyUp)="getValueNote(box.value)"
+                        >
+                      </mat-form-field>> -->
+                    <input 
+                    type="text" 
+                    #box
+                    placeholder="enter notes"
+                    />
+                    <button (click)="getValueNote(box.value)" >ADD</button>
+                    <p> notes: {{displayValNote}} </p>
+                    
+                  </form>
+                  
+                  <div *ngFor="let notesItem of notes">
+                  <app-note
+                  [noteInput]="notesItem"
+                  (delete)="deleteNotes($event)">
+                  </app-note>
+
+              
+            </div>
+        </div>
+    <!-- </mat-card> -->
+</div>
